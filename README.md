@@ -1,1 +1,3 @@
-# web-and-ink
+# Web & Ink
+
+by: Nathalie Claire Huppert - 581969
