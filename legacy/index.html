@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bookmonkey API</title>
+    <script>
+        // LAB 02
+
+        const addEventHandler = function () {
+            document.getElementById("booksForm").onsubmit = sendReqAndDisplayAnswer;
+        }
+        
+        function sendReqAndDisplayAnswer(e) { 
+            console.log(e);
+            e.preventDefault();
+
+            const request = document.getElementById("requestText").value;
+
+            let httpRequest = new XMLHttpRequest(); //This is global object available in a browser's JS-Engine
+
+            const url="http://localhost:4730/" + request;
+            
+            httpRequest.open("GET", url, true);
+            
+            httpRequest.onerror = function() {
+                // diese Funktion wird ausgefuehrt, wenn ein Fehler auftritt
+                console.log("Connecting to server with " + url + " failed!\n");
+                alert ("Connecting to server with " + url + " failed!\n");
+            };
+
+            httpRequest.onload = function() {
+                // diese Funktion wird ausgefuehrt, wenn die Anfrage erfolgreich war
+                let data = this.response;
+                if (this.status == 200) { 
+                    let obj = JSON.parse(data);
+                    console.log(obj);
+                    hideAndDisplayAnswer(obj);
+                } else {     //Handhabung von nicht-200er
+                    alert ("bookMonkeys's HTTP-status was: " + this.status);
+                }
+            };
+            httpRequest.send();
+        }
+
+        function hideAndDisplayAnswer(obj) {
+            document.getElementById("booksForm").style.display = "none";
+            document.getElementById("answerHeading").innerText += " for " + obj.title;
+            document.getElementById("answerText").innerHTML = JSON.stringify(obj, null, 4);
+        }
+        window.onload = addEventHandler; 
+    </script>
+  </head>
+  <body>
+    <h1>Hi Bookmonkey!</h1>
+    <p>Type "books" to get a list of all books or "books/[isbn]" to get a book with a specific isbn! </p>
+    <form id="booksForm"> 
+        <label for="requestText">your request:</label>
+        <input id="requestText" type="text" placeholder="type here" name="requestText" required>
+        <button type="submit">get info!</button>
+    </form>
+    <br/>
+    
+    <h2 id="answerHeading">bookMonkey's answer:</h2>
+    <textarea id="answerText" name="answerText" rows="35" cols="90">
+    </textarea>
+    </body>
+</html>
