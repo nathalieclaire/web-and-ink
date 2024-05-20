@@ -4,7 +4,7 @@ exports.pawBook = void 0;
 exports.pawBook = [
     {
         id: "9781787125421",
-        title: "Progressive Web Application Development by Example",
+        title: "This is the first TestBook!",
         subtitle: "Develop Fast, Reliable, and Engaging User Experiences for the Web",
         isbn: "9781787125421",
         abstract: "Some abstract here",

@@ -3,7 +3,7 @@ import { Book } from "./book";
 export const pawBook: Book[] = [
     {
         id: "9781787125421",
-        title: "Progressive Web Application Development by Example",
+        title: "This is the first TestBook!",
         subtitle: "Develop Fast, Reliable, and Engaging User Experiences for the Web",
         isbn: "9781787125421",
         abstract: "Some abstract here",
