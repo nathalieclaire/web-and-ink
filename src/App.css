@@ -17,3 +17,21 @@
 .App-link {
   color: #61dafb;
 }
+
+/* LIKE BUTTON */
+.like-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.like-button {
+  width: 50px;
+  height: auto; /* Maintain aspect ratio */
+  cursor: 'pointer';
+}
+
+.like-button-text {
+  margin-left: 10px;
+}
+
