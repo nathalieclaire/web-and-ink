@@ -18,7 +18,7 @@ exports.pawBook = [
     {
         id: "112233",
         title: "Another Book",
-        subtitle: "Another subtitle",
+        subtitle: "Develop Fast, Reliable, and Engaging User Experiences for the Web",
         isbn: "112233",
         abstract: "Some abstract here",
         author: "Martin Love",
@@ -31,7 +31,7 @@ exports.pawBook = [
     {
         id: "445566",
         title: "The Third Testbook",
-        subtitle: "The subtitle of the thirs TestBook",
+        subtitle: "Develop Fast, Reliable, and Engaging User Experiences for the Web",
         isbn: "445566",
         abstract: "Some abstract here",
         author: "Martin Love",

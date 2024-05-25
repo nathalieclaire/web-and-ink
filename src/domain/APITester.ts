@@ -66,7 +66,7 @@ async function executeDeleteOneBook(): Promise<Book> {
 // Call the functions
 
 // executeGetAllBooks();
-executeGetOneBook();
+// executeGetOneBook();
 // executePostOneBook();
 // executeUpdateOneBook();
 // executeDeleteOneBook();

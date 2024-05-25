@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAllBooks = void 0;
 // Requesting all books
 function getAllBooks() {
     return __awaiter(this, void 0, void 0, function () {
@@ -57,12 +58,13 @@ function getAllBooks() {
                 case 3:
                     error_1 = _a.sent();
                     console.error('Error:', error_1);
-                    return [3 /*break*/, 4];
+                    return [2 /*return*/, Promise.reject('Error fetching books')];
                 case 4: return [2 /*return*/];
             }
         });
     });
 }
+exports.getAllBooks = getAllBooks;
 // Requesting one book by ISBN
 function getBookByISBN(isbn) {
     return __awaiter(this, void 0, void 0, function () {

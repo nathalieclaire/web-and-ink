@@ -1,7 +1,7 @@
 import { Book } from './book';
 
 // Requesting all books
-async function getAllBooks(): Promise<Book[] | undefined> {
+export async function getAllBooks(): Promise<Book[]> {
     try {
         const response = await fetch('http://localhost:4730/books');
         if (!response.ok) {
@@ -11,6 +11,7 @@ async function getAllBooks(): Promise<Book[] | undefined> {
         return books;
     } catch (error) {
         console.error('Error:', error);
+        return Promise.reject('Error fetching books');
     }
 }
 
