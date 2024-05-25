@@ -7,7 +7,7 @@
   background-color: #282c34;
   min-height: 20vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -19,10 +19,11 @@
 }
 
 /* LIKE BUTTON */
+
 .like-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .like-button {
@@ -35,3 +36,30 @@
   margin-left: 10px;
 }
 
+/* BOOKS */
+
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-item {
+  border: 3px solid #777;
+  border-radius: 40px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.book-item-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.book-item-cover {
+  clip-path: inset(10% 0 10% 0); /* Crop 10% from top and bottom */
+}

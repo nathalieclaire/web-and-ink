@@ -4,7 +4,11 @@ function Header() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>This is the Header!!!</h1>
+        <div className="header-text">
+          <h1>Web & Ink</h1>
+          <h2>Your Virtual Bookstore</h2>
+        </div>
+        <img src="/logo192.png" /* Use the absolut path from root here to prevent isssues! *//>
       </header>
     </div>
   );
