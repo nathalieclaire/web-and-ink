@@ -14,8 +14,9 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-text {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* LIKE BUTTON */
@@ -42,6 +43,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .book-item {
@@ -50,7 +55,11 @@
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
   margin: 15px;
   padding: 20px;
+  width: 500px; /* Fixed width */
+  height: 600px; /* Fixed height */
   text-align: center;
+  justify-content: center;
+  text-align: left;
 }
 
 .book-item-text {
@@ -62,4 +71,12 @@
 
 .book-item-cover {
   clip-path: inset(10% 0 10% 0); /* Crop 10% from top and bottom */
+}
+
+.book-item-info {
+  margin-left: 20px;
+}
+
+.book-item-heading {
+  margin: 20px;
 }

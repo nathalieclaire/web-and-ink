@@ -35,7 +35,13 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
           </div>
         </div>
         <div className="book-item-cover">
-          <img src={book.cover} alt="Book Cover" />
+          {book.cover ? (
+            <img src={book.cover} alt="Book Cover" />
+              ) : (
+                <div className="no-image">
+                  <p> No image! </p>
+                </div>
+              )}
         </div>
       </div>
     </div>

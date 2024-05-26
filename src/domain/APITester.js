@@ -105,19 +105,19 @@ function executeUpdateOneBook() {
             switch (_a.label) {
                 case 0:
                     updatedBook = {
-                        id: '12345678900',
-                        title: 'Updated Book',
-                        subtitle: 'Just updated the best book ever!',
-                        author: 'just Nathalie',
-                        isbn: '12345678900',
-                        abstract: 'Hi, this is the updated abstract for the example book!',
-                        publisher: 'HTW Berlin',
-                        price: '$38.99',
+                        id: '9781430257820',
+                        title: 'Pro ASP.NET Web API Security',
+                        subtitle: 'Securing ASP.NET Web API',
+                        author: 'Badrinarayanan Lakshmiraghavan',
+                        isbn: '9781430257820',
+                        abstract: 'This is the updated abstract for the book!',
+                        publisher: "Apress",
+                        price: '$33.55',
                         numPages: 3926,
-                        cover: 'http://localhost:4730/covers/9781430232766.png',
+                        cover: '',
                         userId: 1,
                     };
-                    return [4 /*yield*/, updateBook("12345678900", updatedBook)];
+                    return [4 /*yield*/, updateBook("9781430257820", updatedBook)];
                 case 1:
                     updated = _a.sent();
                     console.log(updated);
@@ -145,5 +145,5 @@ function executeDeleteOneBook() {
 // executeGetAllBooks();
 // executeGetOneBook();
 // executePostOneBook();
-// executeUpdateOneBook();
+executeUpdateOneBook();
 // executeDeleteOneBook();

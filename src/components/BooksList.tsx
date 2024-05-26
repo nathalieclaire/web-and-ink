@@ -7,9 +7,12 @@ type BookItemProps = {
 };
 
 const BooksList: React.FC<BookItemProps> = ({ books }) => {
+  // Just display the first 20 items from the books array
+  const first20Books = books.slice(0, 20);
+
   return (
     <div className="books-list">
-      {books.map((book, index) => (
+      {first20Books.map((book, index) => (
         <BookItem key={index} book={book} /> // Pass each book as a prop to BookItem
       ))}
     </div>

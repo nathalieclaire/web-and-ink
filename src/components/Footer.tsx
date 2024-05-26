@@ -4,8 +4,8 @@ function Footer() {
   return (
     <div className="App">
       <footer className="App-footer">
-        <h1>About Us</h1>
-        <h1>Legal Notice</h1>
+        <h3 className="footer-text">About Us</h3>
+        <h3 className="footer-text">Legal Notice</h3>
       </footer>
     </div>
   );
