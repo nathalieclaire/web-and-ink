@@ -26,7 +26,7 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
           <p>Price: {book.price}</p>
           <p>ISBN: {book.isbn}</p>
           <div className = "like-container">
-            <img src="/logo192.png" /* Use the absolut path from root here to prevent isssues! */
+            <img src="/like_icon.png" /* Use the absolut path from root here to prevent isssues! */
               alt="Like Button" 
               className='like-button'
               onClick={handleLike} 
