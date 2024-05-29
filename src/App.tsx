@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import BooksList from './components/BooksList';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import BooksList from './components/BooksList/BooksList';
 import { pawBook } from './domain/pawBook'; 
 import { Book } from './domain/book';
 import { getAllBooks } from './domain/API';
@@ -21,12 +20,14 @@ function App() {
     }
 
     fetchBooks();
-  }, [])
+  }, []);
 
   return (
     <div className="App">
         <Header />
-        <BooksList books={pawBook} /> {/* Pass the book array as prop to BooksList */}
+        <div className="book-explorer">
+          <BooksList books={pawBook} /> {/* Pass the book array as prop to BooksList */}
+        </div>
         <Footer />
     </div>
   );

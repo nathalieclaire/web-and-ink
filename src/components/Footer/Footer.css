@@ -1,0 +1,15 @@
+.App-footer {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
+    background-color: #4e4e4e;
+}
+  
+.footer-text {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: calc(8px + 2vmin);
+}

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Book } from "../domain/book";
-import BookItem from './BookItem'; // Import the BookItem component
+import { Book } from "../../domain/book";
+import BookItem from './../BookItem/BookItem'; // Import the BookItem component
+import './BooksList.css';
 
 type BookItemProps = {
     books: Book[];

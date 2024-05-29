@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Book } from "../domain/book";
+import { Book } from "../../domain/book";
+import './BookItem.css';
 
 type BookItemProps = {
     book: Book;
