@@ -21,3 +21,7 @@
     background: none; 
     cursor: pointer;
 }
+
+.search-form input[type="text"]:hover::placeholder {
+    text-shadow: 0 0 3px #004e7e53, 0 0 10px #fff, 0 0 15px #fff; /* Add glow effect */
+}

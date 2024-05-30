@@ -1,10 +1,10 @@
 .books-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+    background-color: rgb(227, 247, 255);
+    padding: 3rem 1rem 3rem 1rem;
+}
+
+.bookslist-content {
+    gap: 1.3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
   

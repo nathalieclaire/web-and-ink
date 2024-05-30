@@ -1,9 +1,10 @@
 .header {
-    min-height: 75vh;
+    min-height: 65vh;
     background: linear-gradient(rgba(134, 189, 255, 0.921), 
     rgba(0, 53, 86, 0.911)), url("./../../../public/bookshelf-inaki-del-olmo.jpg") 
     center/cover no-repeat; 
     flex-direction: column;
+    padding: 0px 30px 50px 30px;
 }
 
 .header-text {

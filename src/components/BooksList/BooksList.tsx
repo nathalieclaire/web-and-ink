@@ -13,9 +13,11 @@ const BooksList: React.FC<BookItemProps> = ({ books }) => {
 
   return (
     <div className="books-list">
-      {first20Books.map((book, index) => (
-        <BookItem key={index} book={book} /> // Pass each book as a prop to BookItem
-      ))}
+      <div className="bookslist-content grid">
+        {first20Books.map((book, index) => (
+          <BookItem key={index} book={book} /> // Pass each book as a prop to BookItem
+        ))}
+      </div>
     </div>
   );
 };

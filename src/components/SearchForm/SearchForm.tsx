@@ -11,7 +11,7 @@ function SearchForm() {
           <div className='search-form-elem flex flex-sb'>
             <input type = "text" className='form-control' placeholder='Search for a title' />
             <button type = "submit" className='search-button flex flex-c'>
-              <FaSearch  size = {30} />
+              <FaSearch size = {30} />
             </button>
           </div>
         </form>

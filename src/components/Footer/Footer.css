@@ -1,5 +1,4 @@
 .footer {
-    flex-direction: row;
     color: white;
     min-height: 25vh;
     background: linear-gradient(rgba(134, 189, 255, 0.921), 
@@ -9,7 +8,6 @@
 }
   
 .footer-text {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 10px 30px 50px 30px;
     font-size: 1.8rem;
 }

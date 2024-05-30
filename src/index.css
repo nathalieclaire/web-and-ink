@@ -36,10 +36,6 @@ code {
   flex-direction: column;
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
 .flex-sb {
   justify-content: space-between;
 }
@@ -62,4 +58,18 @@ code {
   font-weight: 600;
   text-transform: uppercase;
   padding: 8px 0 24px 0;
+}
+
+.bold-label {
+  font-weight: 600;
+  padding-right: 5px;
+  line-height: 1.8;
+}
+
+.bold-label2 {
+  font-weight: 600;
+}
+
+.blue-color {
+  color: rgba(0, 60, 97, 0.887);
 }
