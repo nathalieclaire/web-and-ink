@@ -1,0 +1,23 @@
+.search-form {
+    background-color: white;
+    width: 100%;
+    max-width: 680px;
+    border-radius: 3.8rem;
+}
+
+.search-form-elem {
+    padding: 0.8rem;
+}
+
+.form-control {
+    font-size: 18px;
+    border: none; /* Remove border from input field */
+    outline: none; /* Remove outline on focus */
+}
+
+.search-button {
+    color: rgb(76, 76, 76);
+    border: none;
+    background: none; 
+    cursor: pointer;
+}

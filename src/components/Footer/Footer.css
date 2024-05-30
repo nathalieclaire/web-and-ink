@@ -1,15 +1,15 @@
-.App-footer {
-    display: flex;
+.footer {
     flex-direction: row;
     color: white;
+    min-height: 25vh;
+    background: linear-gradient(rgba(134, 189, 255, 0.921), 
+    rgba(0, 53, 86, 0.911)), url("./../../../public/bookshelf-inaki-del-olmo.jpg") 
+    center/cover no-repeat; 
     align-items: center;
-    justify-content: center;
-    min-height: 20vh;
-    background-color: #4e4e4e;
 }
   
 .footer-text {
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: calc(8px + 2vmin);
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 1.8rem;
 }

@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
   return (
     <div className="App">
-      <footer className="App-footer">
+      <footer className="footer flex flex-row flex-c">
         <h1 className="footer-text">About Us</h1>
         <h1 className="footer-text">Legal Notice</h1>
       </footer>
