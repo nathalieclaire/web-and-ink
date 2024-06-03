@@ -1,7 +1,7 @@
 import { Book } from './book';
 
 // Requesting all books
-export async function getAllBooks(): Promise<Book[]> {
+async function getAllBooks(): Promise<Book[]> {
     try {
         const response = await fetch('http://localhost:4730/books');
         if (!response.ok) {
@@ -110,4 +110,4 @@ async function deleteBook(isbn: number): Promise<boolean | undefined> {
     }
 }
 
-module.exports = { getAllBooks, getBookByISBN, postNewBook, updateBook, deleteBook };
+export { getAllBooks, getBookByISBN, postNewBook, updateBook, deleteBook };

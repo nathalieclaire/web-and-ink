@@ -6,8 +6,13 @@
     center/cover no-repeat; 
     align-items: center;
 }
+
+.footer p {
+    text-align: center;
+}
   
 .footer-text {
     padding: 10px 30px 50px 30px;
     font-size: 1.8rem;
+    text-align: center;
 }
