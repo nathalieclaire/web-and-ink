@@ -73,3 +73,33 @@ code {
 .blue-color {
   color: rgba(0, 60, 97, 0.887);
 }
+
+.custom-content {
+  text-align: center;
+  color: rgb(138, 138, 138);
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 60px;
+  background-color: rgb(227, 247, 255);
+}
+
+.button-container {
+  background-color: rgb(227, 247, 255);
+}
+
+.button {
+  cursor: pointer;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 40px;
+  color:rgba(0, 60, 97, 0.887);
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(21, 60, 105, 0.1);
+}
+
+.button:hover {
+  box-shadow: rgba(0, 63, 105, 0.332) 0px 5px 15px 0px; 
+}

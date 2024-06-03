@@ -5,29 +5,39 @@ import BooksList from './components/BooksList/BooksList';
 import { pawBook } from './domain/pawBook'; 
 import { Book } from './domain/book';
 import { getAllBooks } from './domain/API';
+import { useBooks } from './domain/hook';
 
 function App() {
-  const [pawBook, setBooks] = useState<Book[]>([]);
+  const { books, state, error, refresh } = useBooks();
 
-  useEffect(() => {
-    async function fetchBooks() {
-      try {
-        const fetchedBooks = await getAllBooks();
-        setBooks(fetchedBooks);
-      } catch (error) {
-        console.error('Error fetching books:', error);
-      }
-    }
+  let content;
 
-    fetchBooks();
-  }, []);
+  switch (state) {
+
+    case 'loading':
+      content = <p className="custom-content">Loading books…</p>;
+      console.log("loading");
+      break;
+    case 'error':
+      content = <p className="custom-content">{error?.message}</p>;
+      console.log("error", error?.message);
+      break;
+    case 'success':
+      content = <BooksList books={books} />;
+      console.log("success");
+      break;
+    default:
+      content = <p className="custom-content">Books are currently unavailable.</p>;
+      break;
+  }
 
   return (
     <div className="App">
         <Header />
-        <div className="book-explorer">
-          <BooksList books={pawBook} /> {/* Pass the book array as prop to BooksList */}
+        <div className="button-container flex flex-c">
+          <button onClick={refresh} className="button">Refresh Books</button> {/* Add a button to manually refresh the books */}
         </div>
+        {content}
         <Footer />
     </div>
   );
