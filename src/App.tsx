@@ -6,38 +6,15 @@ import { pawBook } from './domain/pawBook';
 import { Book } from './domain/book';
 import { getAllBooks } from './domain/API';
 import { useBooks } from './domain/hook';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const { books, state, error, refresh } = useBooks();
 
-  let content;
-
-  switch (state) {
-
-    case 'loading':
-      content = <p className="custom-content">Loading books…</p>;
-      console.log("loading");
-      break;
-    case 'error':
-      content = <p className="custom-content">{error?.message}</p>;
-      console.log("error", error?.message);
-      break;
-    case 'success':
-      content = <BooksList books={books} />;
-      console.log("success");
-      break;
-    default:
-      content = <p className="custom-content">Books are currently unavailable.</p>;
-      break;
-  }
-
   return (
     <div className="App">
         <Header />
-        <div className="button-container flex flex-c">
-          <button onClick={refresh} className="button">Refresh Books</button> {/* Add a button to manually refresh the books */}
-        </div>
-        {content}
+        <Outlet />
         <Footer />
     </div>
   );
