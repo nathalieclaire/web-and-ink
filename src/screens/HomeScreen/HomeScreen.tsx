@@ -2,6 +2,9 @@ import React from 'react';
 import './HomeScreen.css';
 import BooksList from '../../components/BooksList/BooksList';
 import { useBooks } from "../../domain/hook";
+import AddBooksButton from '../../components/AddBooksButton/AddBooksButton';
+import { HiOutlineRefresh } from "react-icons/hi";
+import SearchForm from '../../components/SearchForm/SearchForm';
 
 function HomeScreen() {
 
@@ -29,8 +32,14 @@ function HomeScreen() {
 
   return (
     <div className="App">
-        <div className="button-container flex flex-c">
-          <button onClick={refresh} className="button">Refresh Books</button> {/* Add a button to manually refresh the books */}
+        <div className="blue-bg flex flex-sb">
+            <div>
+                <SearchForm />
+            </div>
+            <div className="button-container flex">
+            <button onClick={refresh} className="button"><HiOutlineRefresh size = {20}/></button> {/* Add a button to manually refresh the books */}
+            <AddBooksButton />
+            </div>
         </div>
         {content}
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import SearchForm from '../SearchForm/SearchForm';  
+import Nav from '../Nav/Nav';  
 
 function Header() {
   return (
@@ -11,7 +11,7 @@ function Header() {
         <div className="header-text">
           <h2>Your Virtual Bookstore</h2>
         </div>
-        <SearchForm />
+        <Nav />
       </header>
     </div>
   );
