@@ -7,7 +7,6 @@ function Nav() {
     <div className="App">
         <nav>
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/books">Books</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/legal-notice">Legal Notice</NavLink>
         </nav>
