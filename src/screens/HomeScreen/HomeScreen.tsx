@@ -33,7 +33,7 @@ function HomeScreen() {
   return (
     <div className="App">
         <div className="blue-bg flex flex-sb">
-            <div>
+            <div className = "flex">
                 <SearchForm />
             </div>
             <div className="button-container flex">
