@@ -15,4 +15,9 @@
     padding: 10px 30px 50px 30px;
     font-size: 1.8rem;
     text-align: center;
+    color: rgba(221, 221, 221, 0.887);
+}
+
+.footer-text:hover {
+    color: rgba(19, 62, 88, 0.887);
 }
