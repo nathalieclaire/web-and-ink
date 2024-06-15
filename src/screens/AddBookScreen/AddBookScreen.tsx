@@ -1,12 +1,9 @@
-import React from 'react';
-import './AddBookScreen.css';
-
-function AddBookScreen() {
+const AddBookScreen = () => {
   return (
-    <div className="App">
-        <h1>AddBookScreen</h1>
+    <div>
+
     </div>
   );
-}
+};
 
 export default AddBookScreen;
