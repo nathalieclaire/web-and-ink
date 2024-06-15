@@ -1,9 +1,8 @@
-// BookDetailsScreen.tsx
-
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getBookByISBN } from '../../domain/API'; // Adjust this import based on your actual API file
-import { Book } from '../../domain/book'; // Adjust the path based on your actual Book interface location
+import { useParams, useNavigate } from 'react-router-dom';
+import { getBookByISBN } from '../../domain/API';
+import { Book } from '../../domain/book';
+import { IoIosArrowBack } from "react-icons/io";
 
 const BookDetailsScreen: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -11,10 +10,15 @@ const BookDetailsScreen: React.FC = () => {
     const [book, setBook] = useState<Book | null>(null);
     const [error, setError] = useState<string | null>(null);
 
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/");
+    }
+
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const fetchedBook = await getBookByISBN(effectiveId); // Assuming getBookByISBN fetches book details by ISBN
+                const fetchedBook = await getBookByISBN(effectiveId);
                 setBook(fetchedBook);
                 setError(null);
             } catch (error) {
@@ -30,11 +34,12 @@ const BookDetailsScreen: React.FC = () => {
     }, [id]);
 
     if (!id) {
-        return <div>No ID provided</div>; // Render some placeholder or error component if id is not present
+        return <div>No ID provided</div>;
     }
 
     return (
         <div>
+            <button onClick={handleClick} className="button"><IoIosArrowBack /></button>
             {error && <p>{error}</p>}
             {book && (
                 <div>
