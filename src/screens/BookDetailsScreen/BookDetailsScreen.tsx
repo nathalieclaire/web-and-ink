@@ -15,6 +15,10 @@ const BookDetailsScreen: React.FC = () => {
         navigate("/");
     }
 
+    const handleClick2 = () => {
+        navigate(`/edit-book/${effectiveId}`);
+    }
+
     useEffect(() => {
         const fetchBook = async () => {
             try {
@@ -40,6 +44,7 @@ const BookDetailsScreen: React.FC = () => {
     return (
         <div>
             <button onClick={handleClick} className="button"><IoIosArrowBack /></button>
+            <button onClick={handleClick2} className="button">Edit Book</button>
             {error && <p>{error}</p>}
             {book && (
                 <div>
