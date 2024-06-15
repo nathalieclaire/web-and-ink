@@ -5,6 +5,7 @@ import AboutScreen from "./screens/AboutScreen/AboutScreen";
 import AddBookScreen from "./screens/AddBookScreen/AddBookScreen";
 import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import LegalNoticeScreen from "./screens/LegalNoticeScreen/LegalNoticeScreen";
+import BookDetailsScreen from "./screens/BookDetailsScreen/BookDetailsScreen";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,14 @@ export const router = createBrowserRouter([
             {
                 path: "legal-notice",
                 element: <LegalNoticeScreen />,
+            },
+            {
+                path: "/books/:id",
+                element: <BookDetailsScreen />,
+            },
+            {
+                path: "/page/:pageNumber",
+                element: <HomeScreen />,
             },
         ],
     },

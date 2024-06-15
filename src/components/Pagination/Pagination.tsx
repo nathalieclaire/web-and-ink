@@ -1,5 +1,6 @@
 import React from 'react';
 import './Pagination.css'; 
+import { NavLink } from 'react-router-dom';
 
 interface paginationProps {
     totalBooks: number;
@@ -17,11 +18,18 @@ function Pagination({totalBooks, booksPerPage, setCurrentPage}: paginationProps)
     return (
         <div className="App pagination-container">
             {
-            pages.map((page, index) => {
-                return (
-                    <button key={index} onClick={() => setCurrentPage(page)}className="button">{page}</button>
-                );
-            })
+                pages.map((pageNumber, index) => {
+                    return (
+                        <NavLink 
+                            key={index} 
+                            to={`/page/${pageNumber}`} 
+                            className="button"
+                            onClick={() => setCurrentPage(pageNumber)}
+                        >
+                            {pageNumber}
+                        </NavLink>
+                    );
+                })
             }
         </div>
     );

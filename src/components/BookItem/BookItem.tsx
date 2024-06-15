@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Book } from "../../domain/book";
 import './BookItem.css';
+import { NavLink } from 'react-router-dom';
 
 type BookItemProps = {
     book: Book;
@@ -15,6 +16,8 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
   }
 
   return (
+    <div>
+    <NavLink to={`/books/${book.id}`}>
     <div className="book-item flex flex-column flex-sb">
       <div className="book-item-cover">
           {book.cover ? (
@@ -47,6 +50,8 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
         <span className="like-button-text"> {likes}</span>
         <span className="like-button-text2"> Likes </span>
       </div>
+    </div>
+    </ NavLink>
     </div>
   );
 };
