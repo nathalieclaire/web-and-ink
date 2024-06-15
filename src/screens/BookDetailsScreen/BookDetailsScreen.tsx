@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getBookByISBN } from '../../domain/API';
 import { Book } from '../../domain/book';
 import { IoIosArrowBack } from "react-icons/io";
+import DeleteBookButton from '../../components/DeleteBookButton/DeleteBookButton';
 
 const BookDetailsScreen: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -41,6 +42,10 @@ const BookDetailsScreen: React.FC = () => {
         return <div>No ID provided</div>;
     }
 
+    if (!book) {
+        return <div>Loading book details...</div>;
+    }
+
     return (
         <div>
             <button onClick={handleClick} className="button"><IoIosArrowBack /></button>
@@ -59,6 +64,7 @@ const BookDetailsScreen: React.FC = () => {
                     <img src={book.cover} alt="Book Cover" style={{ maxWidth: '150px' }} />
                 </div>
             )}
+            <DeleteBookButton isbn={book.id}/>
         </div>
     );
 };

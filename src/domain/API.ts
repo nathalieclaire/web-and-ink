@@ -96,7 +96,7 @@ async function updateBook(isbn: string, updatedBook: Book): Promise<Book | undef
 }
 
 // Deleting a book
-async function deleteBook(isbn: number): Promise<boolean | undefined> {
+async function deleteBook(isbn: string): Promise<boolean | undefined> {
     try {
         const response = await fetch(`http://localhost:4730/books/${isbn}`, {
             method: 'DELETE',

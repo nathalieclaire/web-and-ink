@@ -54,6 +54,15 @@ const AddBookScreen = () => {
     navigate("/"); // Navigate back to the home screen
   };
 
+  // the API wants "id" as a string but I had problems deleting books when I 
+  // accidentally used characters for the id when I created a book
+  const handleIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) { // Allow only numeric input
+      setId(value);
+    }
+  };
+
   return (
     <div>
     <h1>Add Book</h1>
@@ -63,7 +72,7 @@ const AddBookScreen = () => {
         <input
           type="text"
           value={id}
-          onChange={(e) => setId(e.target.value)}
+          onChange={handleIdChange}
           required
         />
       </label>
