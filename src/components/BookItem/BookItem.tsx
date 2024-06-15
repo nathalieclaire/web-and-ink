@@ -17,9 +17,9 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
 
   return (
     <div>
-    <NavLink to={`/books/${book.id}`}>
     <div className="book-item flex flex-column flex-sb">
       <div className="book-item-cover">
+      <NavLink to={`/books/${book.id}`}>
           {book.cover ? (
             <img src={book.cover} alt="Book Cover" />
               ) : (
@@ -29,10 +29,13 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
                   />
                 </div>
               )}
+      </ NavLink>
       </div>
       <div className="book-item-text-container">
         <div className="book-item-heading">
-          <h1><span className="blue-color bold-label2">{book.title}</span></h1>
+          <NavLink to={`/books/${book.id}`}>
+            <h1><span className="blue-color bold-label2">{book.title}</span></h1>
+          </ NavLink>
           <h2>{book.subtitle}</h2>
         </div>
         <div className="book-item-text">
@@ -51,7 +54,6 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
         <span className="like-button-text2"> Likes </span>
       </div>
     </div>
-    </ NavLink>
     </div>
   );
 };
