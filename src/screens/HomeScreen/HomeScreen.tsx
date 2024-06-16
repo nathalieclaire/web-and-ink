@@ -33,13 +33,13 @@ function HomeScreen() {
 
   return (
     <div className="App">
-        <div className="blue-bg flex flex-sb">
+        <div className="blue-bg flex flex-sb flex-c">
             <div className = "flex">
                 <SearchForm />
             </div>
             <div className="button-container flex">
-            <button onClick={refresh} className="button"><HiOutlineRefresh size = {20}/></button> {/* Add a button to manually refresh the books */}
-            <AddBooksButton />
+                <button onClick={refresh} className="button"><HiOutlineRefresh size = {20}/></button> {/* Add a button to manually refresh the books */}
+                <AddBooksButton />
             </div>
         </div>
         {content}

@@ -43,6 +43,10 @@
     padding-bottom: 5px;
 }
 
+.book-item-heading a {
+    text-decoration: none; /* Remove underline */
+}
+
 .book-item-heading h2 {
     font-size: 15px;
 }

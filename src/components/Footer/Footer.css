@@ -5,6 +5,7 @@
     rgba(0, 53, 86, 0.911)), url("./../../../public/bookshelf-inaki-del-olmo.jpg") 
     center/cover no-repeat; 
     align-items: center;
+    padding-bottom: 10px;
 }
 
 .footer p {

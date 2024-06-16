@@ -16,14 +16,14 @@ function Pagination({totalBooks, booksPerPage, setCurrentPage}: paginationProps)
     }
 
     return (
-        <div className="App pagination-container">
+        <div className="App pagination-container flex flex-c">
             {
                 pages.map((pageNumber, index) => {
                     return (
                         <NavLink 
                             key={index} 
                             to={`/page/${pageNumber}`} 
-                            className="button"
+                            className="pagination-button"
                             onClick={() => setCurrentPage(pageNumber)}
                         >
                             {pageNumber}
