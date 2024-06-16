@@ -61,7 +61,8 @@ const BookDetailsScreen: React.FC = () => {
                     <p>Publisher: {book.publisher}</p>
                     <p>Price: {book.price}</p>
                     <p>Number of Pages: {book.numPages}</p>
-                    <img src={book.cover} alt="Book Cover" style={{ maxWidth: '150px' }} />
+                    <img src={book.cover} alt="Book Cover" style={{ maxWidth: '150px' }} 
+                    onError={(e) => (e.currentTarget.src = "/no_cover.png")}/>
                 </div>
             )}
             <DeleteBookButton isbn={book.id}/>

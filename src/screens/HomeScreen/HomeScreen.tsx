@@ -5,6 +5,7 @@ import { useBooks } from "../../domain/hook";
 import AddBooksButton from '../../components/AddBooksButton/AddBooksButton';
 import { HiOutlineRefresh } from "react-icons/hi";
 import SearchForm from '../../components/SearchForm/SearchForm';
+import Pagination from '../../components/Pagination/Pagination';
 
 function HomeScreen() {
 

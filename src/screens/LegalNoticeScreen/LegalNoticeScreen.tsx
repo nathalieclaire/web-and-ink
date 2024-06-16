@@ -40,8 +40,8 @@ function LegalNoticeScreen() {
           laws. Our Privacy Policy, available on our website, details how we collect, use, and 
           safeguard your personal information. By using our website, you consent to the collection 
           and use of your data as outlined in the Privacy Policy. If you have any questions or 
-          concerns about your privacy, please contact us at webandink@webandink.com, and we will address 
-          them promptly.
+          concerns about your privacy, please contact us at <a href="mailto:webandink@webandink.com">
+          webandink@webandink.com</a>, and we will address them promptly.
         </p>
         <p>
           We appreciate your trust in Web & Ink and look forward to serving your web design and 

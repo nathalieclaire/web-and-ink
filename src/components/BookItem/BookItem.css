@@ -3,6 +3,7 @@
     border-radius: 15px;
     box-shadow: 0px 8px 16px rgba(21, 60, 105, 0.1);
     padding: 20px 30px 30px 30px;
+    height: 100%; /* Ensure each item takes full height of its container */
 }
 
 .book-item:hover{
