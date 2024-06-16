@@ -6,9 +6,9 @@ function Nav() {
   return (
     <div className="App">
         <nav>
-            <NavLink to="/" className="nav-item">Home</NavLink>
-            <NavLink to="/about" className="nav-item">About</NavLink>
-            <NavLink to="/legal-notice" className="nav-item">Legal Notice</NavLink>
+            <NavLink to="/" className="nav-item bold-label">Home</NavLink>
+            <NavLink to="/about" className="nav-item bold-label">About</NavLink>
+            <NavLink to="/legal-notice" className="nav-item bold-label">Legal Notice</NavLink>
         </nav>
     </div>
   );

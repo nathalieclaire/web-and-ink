@@ -1,0 +1,18 @@
+.about-container h1 {
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.about-container h2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-container p {
+    margin: 40px 10vw 40px 10vw;
+}
+
+.about-container {
+    margin-bottom: 10vh;
+}

@@ -3,9 +3,9 @@ import './AboutScreen.css';
 
 function AboutScreen() {
   return (
-    <div className="App">
-        <h1>About Web & Ink</h1>
-        <h2>Building Blocks for Digital Creatives</h2>
+    <div className="App about-container">
+        <h1 className="blue-color bold-label2 flex flex-c">About Web & Ink</h1>
+        <h2 className="bold-label flex flex-c">Building Blocks for Digital Creatives</h2>
         <p>
           Welcome to Web & Ink, your ultimate online destination for web design and development 
           literature. Our bookstore is meticulously curated to cater specifically to digital creatives, 

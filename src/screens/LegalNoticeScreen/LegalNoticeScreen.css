@@ -1,0 +1,18 @@
+.legal-container h1 {
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.legal-container h2 {
+    margin: 40px 10vw 40px 10vw;
+    text-align: center;
+}
+
+.legal-container p {
+    margin: 40px 10vw 40px 10vw;
+}
+
+.legal-container {
+    margin-bottom: 10vh;
+}
+

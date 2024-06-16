@@ -5,7 +5,7 @@
     rgba(0, 53, 86, 0.911)), url("./../../../public/bookshelf-inaki-del-olmo.jpg") 
     center/cover no-repeat; 
     align-items: center;
-    padding-bottom: 10px;
+    padding-bottom: 5vh;
 }
 
 .footer p {
@@ -13,12 +13,12 @@
 }
   
 .footer-text {
-    padding: 10px 30px 50px 30px;
-    font-size: 1.6rem;
+    padding: 40px 30px 50px 30px;
+    font-size: 1.2rem;
     text-align: center;
     color: rgba(221, 221, 221, 0.887);
 }
 
 .footer-text:hover {
-    color: rgba(19, 62, 88, 0.887);
+    color: rgba(55, 177, 252, 0.887);
 }
