@@ -1,18 +1,17 @@
 /* <NavLink to=“...”/> adds .active css class to anchor when link is active */
-.nav {
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    margin: 15px;
-    border-radius: 10px;
-}
-
 .nav-item {
     text-decoration: none; /* Remove underline */
     color: white;
     font-size: 1.3rem;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 1.2vh;
+    padding-right: 1.2vh;
 }
 
 .active {
     color: rgb(131, 208, 255);
+}
+
+nav span {
+    color: rgb(8, 42, 62);
+    font-weight: bold;
 }

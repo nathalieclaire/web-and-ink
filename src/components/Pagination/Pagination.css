@@ -1,6 +1,7 @@
 .pagination-container {
     flex-wrap: wrap; /* Allows items to wrap to the next line */
     margin: 15px;
+    margin-bottom: 4vh;
     background-color:rgba(0, 53, 86, 0.151);
     border-radius: 10px;
 }
