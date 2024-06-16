@@ -4,8 +4,8 @@
 }
 
 .legal-container h2 {
-    margin: 40px 10vw 40px 10vw;
-    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .legal-container p {

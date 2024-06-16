@@ -1,0 +1,18 @@
+.book-details-container {
+    flex-direction: column;
+    margin-bottom: 10vh;
+}
+
+.book-details-container h1 {
+    text-align: center;
+    margin: 30px 10vw 20px;
+}
+
+.book-details-container h2 {
+    margin: 10px 10vw 20px 10vw;
+    text-align: center;
+}
+
+.book-details-container p {
+    margin: 5px 10vh;
+}

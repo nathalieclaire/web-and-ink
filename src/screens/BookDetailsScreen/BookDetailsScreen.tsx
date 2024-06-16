@@ -4,6 +4,7 @@ import { getBookByISBN } from '../../domain/API';
 import { Book } from '../../domain/book';
 import { IoIosArrowBack } from "react-icons/io";
 import DeleteBookButton from '../../components/DeleteBookButton/DeleteBookButton';
+import './BookDetailsScreen.css';
 
 const BookDetailsScreen: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -49,22 +50,22 @@ const BookDetailsScreen: React.FC = () => {
     return (
         <div>
             <button onClick={handleClick} className="button"><IoIosArrowBack /></button>
-            <button onClick={handleClick2} className="button">Edit Book</button>
             {error && <p>{error}</p>}
             {book && (
-                <div>
-                    <h3>Title: {book.title}</h3>
-                    <p>Subtitle: {book.subtitle}</p>
-                    <p>ISBN: {book.isbn}</p>
-                    <p>Abstract: {book.abstract}</p>
-                    <p>Author: {book.author}</p>
-                    <p>Publisher: {book.publisher}</p>
-                    <p>Price: {book.price}</p>
-                    <p>Number of Pages: {book.numPages}</p>
+                <div className="book-details-container flex">
+                    <h1 className="blue-color bold-label2 flex flex-c">Title: {book.title}</h1>
+                    <h2 className="bold-label flex flex-c">Subtitle: {book.subtitle}</h2>
+                    <p><span className="bold-label">ISBN: </span>{book.isbn}</p>
+                    <p><span className="bold-label">Abstract: </span>{book.abstract}</p>
+                    <p><span className="bold-label">Author: </span>{book.author}</p>
+                    <p><span className="bold-label">Publisher: </span>{book.publisher}</p>
+                    <p><span className="bold-label">Price: </span>{book.price}</p>
+                    <p><span className="bold-label">Number of Pages: </span>{book.numPages}</p>
                     <img src={book.cover} alt="Book Cover" style={{ maxWidth: '150px' }} 
                     onError={(e) => (e.currentTarget.src = "/no_cover.png")}/>
                 </div>
             )}
+            <button onClick={handleClick2} className="button">Edit Book</button>
             <DeleteBookButton isbn={book.id}/>
         </div>
     );
