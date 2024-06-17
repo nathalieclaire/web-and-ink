@@ -31,11 +31,11 @@ export const router = createBrowserRouter([
                 element: <LegalNoticeScreen />,
             },
             {
-                path: "/books/:id",
+                path: "/books/:isbn",
                 element: <BookDetailsScreen />,
             },
             {
-                path: "/edit-book/:id",
+                path: "/edit-book/:isbn",
                 element: <EditBookScreen />,
             },
         ],

@@ -43,7 +43,7 @@ const AddBookScreen = () => {
 
     try {
       const createdBook = await postNewBook(newBook);
-      navigate(`/books/${createdBook.id}`); // Navigate to BookDetailsScreen for the newly created book
+      navigate(`/books/${createdBook.isbn}`); // Navigate to BookDetailsScreen for the newly created book
     } catch (error) {
       console.error('Error creating book:', error);
       setError('Error creating book. Please try again.');
@@ -55,12 +55,12 @@ const AddBookScreen = () => {
     navigate("/"); // Navigate back to the home screen
   };
 
-  // the API wants "id" as a string but I had problems deleting books when I 
-  // accidentally used characters for the id when I created a book
-  const handleIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // the API wants "isbn" as a string but I had problems deleting books when I 
+  // accidentally used characters for the isbn when I created a book
+  const handleIsbnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (/^\d*$/.test(value)) { // Allow only numeric input
-      setId(value);
+      setIsbn(value);
     }
   };
 
@@ -74,7 +74,7 @@ const AddBookScreen = () => {
         <input
           type="text"
           value={id}
-          onChange={handleIdChange}
+          onChange={(e) => setId(e.target.value)}
           required
         />
       </label >
@@ -100,7 +100,7 @@ const AddBookScreen = () => {
         <input
           type="text"
           value={isbn}
-          onChange={(e) => setIsbn(e.target.value)}
+          onChange={handleIsbnChange}
           required
         />
       </label>

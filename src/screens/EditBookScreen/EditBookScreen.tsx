@@ -12,15 +12,15 @@ export function EditBookScreen() {
 
     const navigate = useNavigate();
 
-    const { id } = useParams<{ id: string }>();
-    const effectiveId = id || 'defaultISBN'; // Use 'defaultISBN' if id is undefined
+    const { isbn } = useParams<{ isbn: string }>();
+    const effectiveIsbn = isbn || 'defaultISBN'; // Use 'defaultISBN' if isbn is undefined
     const [book, setBook] = useState<Book | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     // state variables for form inputs
     const [title, setTitle] = useState('');
     const [subtitle, setSubtitle] = useState('');
-    const [isbn, setIsbn] = useState('');
+    const [id, setId] = useState('');
     const [abstract, setAbstract] = useState('');
     const [author, setAuthor] = useState('');
     const [publisher, setPublisher] = useState('');
@@ -30,13 +30,13 @@ export function EditBookScreen() {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const fetchedBook = await getBookByISBN(effectiveId);
+                const fetchedBook = await getBookByISBN(effectiveIsbn);
                 setBook(fetchedBook);
                 setError(null);
                 // Initialize form fields with book data
                 setTitle(fetchedBook.title);
                 setSubtitle(fetchedBook.subtitle);
-                setIsbn(fetchedBook.isbn);
+                setId(fetchedBook.id);
                 setAbstract(fetchedBook.abstract);
                 setAuthor(fetchedBook.author);
                 setPublisher(fetchedBook.publisher);
@@ -49,13 +49,13 @@ export function EditBookScreen() {
             }
         };
 
-        if (id) {
+        if (isbn) {
             fetchBook();
         }
-    }, [id, effectiveId]);
+    }, [isbn]);
 
-    if (!id) {
-        return <div>No ID provided</div>;
+    if (!isbn) {
+        return <div>No ISBN provided</div>;
     }
 
     if (!book) {
@@ -65,7 +65,7 @@ export function EditBookScreen() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     // Take the values from the form fields
     // update with UpdateBook from API.ts
-    // onsubmit: user has to be directed to "/books/:id" with: useNavigate()
+    // onsubmit: user has to be directed to "/books/:isbn" with: useNavigate()
 
             event.preventDefault();
             // Prepare updated book object
@@ -82,8 +82,13 @@ export function EditBookScreen() {
             };
     
             try {
-                await updateBook(id, updatedBook); 
-                navigate(`/books/${id}`); // Redirect to BookDetailsScreen after successful update
+                const updated = await updateBook(isbn, updatedBook); 
+                if (updated) {
+                    navigate(`/books/${updatedBook.isbn}`);
+                } else {
+                    console.error('Error updating book: Updated book is undefined.');
+                    setError('Error updating book. Please try again.');
+                }
             } catch (error) {
                 console.error('Error updating book:', error);
                 setError('Error updating book. Please try again.');
@@ -93,7 +98,7 @@ export function EditBookScreen() {
 
     function handleClickCancel() {
         console.log("Cancel");
-        navigate(`/books/${effectiveId}`);
+        navigate(`/books/${effectiveIsbn}`);
     }
 
     return (
@@ -110,7 +115,7 @@ export function EditBookScreen() {
             </label>
             <label className="editbook-label">
                 <span className="bold-label">ISBN: </span>
-                <input type="text" value={isbn} onChange={(e) => setIsbn(e.target.value)} />
+                // also show the ISBN here! (it's effectiveIsbn) and make it editable so the new isbn is also shown in the route
             </label>
             <label className="editbook-label">
                 <span className="bold-label">Abstract: </span>

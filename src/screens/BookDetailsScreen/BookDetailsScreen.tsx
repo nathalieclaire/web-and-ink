@@ -7,8 +7,8 @@ import DeleteBookButton from '../../components/DeleteBookButton/DeleteBookButton
 import './BookDetailsScreen.css';
 
 const BookDetailsScreen: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
-    const effectiveId = id || 'defaultISBN'; // Use 'defaultISBN' if id is undefined
+    const { isbn } = useParams<{ isbn: string }>();
+    const effectiveIsbn = isbn || 'defaultISBN'; // Use 'defaultISBN' if isbn is undefined
     const [book, setBook] = useState<Book | null>(null);
     const [error, setError] = useState<string | null>(null);
 
@@ -18,13 +18,13 @@ const BookDetailsScreen: React.FC = () => {
     }
 
     const handleClick2 = () => {
-        navigate(`/edit-book/${effectiveId}`);
+        navigate(`/edit-book/${effectiveIsbn}`);
     }
 
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const fetchedBook = await getBookByISBN(effectiveId);
+                const fetchedBook = await getBookByISBN(effectiveIsbn);
                 setBook(fetchedBook);
                 setError(null);
             } catch (error) {
@@ -34,13 +34,13 @@ const BookDetailsScreen: React.FC = () => {
             }
         };
 
-        if (id) {
+        if (isbn) {
             fetchBook();
         }
-    }, [id]);
+    }, [isbn]);
 
-    if (!id) {
-        return <div>No ID provided</div>;
+    if (!isbn) {
+        return <div>No ISBN provided</div>;
     }
 
     if (!book) {
@@ -69,7 +69,7 @@ const BookDetailsScreen: React.FC = () => {
             )}
             <div className="bookdetails-button-container flex">
                 <button onClick={handleClick2} className="button">Edit Book</button>
-                <DeleteBookButton isbn={book.id}/>
+                <DeleteBookButton isbn={book.isbn}/>
             </div>
         </div>
     );
