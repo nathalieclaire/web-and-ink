@@ -70,7 +70,7 @@ const AddBookScreen = () => {
     <h1 className="blue-color bold-label2">Add Book</h1>
     <form onSubmit={handleSubmit} className="addbook-form">
     <label className="addbook-label">
-        ID:
+      <span className="bold-label">ID: </span>
         <input
           type="text"
           value={id}
@@ -79,7 +79,7 @@ const AddBookScreen = () => {
         />
       </label >
       <label className="addbook-label">
-        Title:
+        <span className="bold-label">Title: </span>
         <input
           type="text"
           value={title}
@@ -88,7 +88,7 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        Subtitle:
+        <span className="bold-label">Subtitle: </span>
         <input
           type="text"
           value={subtitle}
@@ -96,7 +96,7 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        ISBN:
+        <span className="bold-label">ISBN: </span>
         <input
           type="text"
           value={isbn}
@@ -105,14 +105,14 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        Abstract:
+        <span className="bold-label">Abstract: </span>
         <textarea
           value={abstract}
           onChange={(e) => setAbstract(e.target.value)}
         />
       </label>
       <label className="addbook-label">
-        Author:
+        <span className="bold-label">Author: </span>
         <input
           type="text"
           value={author}
@@ -120,7 +120,7 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        Publisher:
+        <span className="bold-label">Publisher: </span>
         <input
           type="text"
           value={publisher}
@@ -128,7 +128,7 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        Price:
+        <span className="bold-label">Price: </span>
         <input
           type="text"
           value={price}
@@ -136,7 +136,7 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        Number of Pages:
+        <span className="bold-label">Number of Pages: </span>
         <input
           type="number"
           value={numPages}
@@ -144,7 +144,7 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        User-ID:
+        <span className="bold-label">User-ID: </span>
         <input
           type="number"
           value={userId}

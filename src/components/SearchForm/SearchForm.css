@@ -27,3 +27,7 @@
 .search-form input[type="text"]:hover::placeholder {
     color: #416e94;
 }
+
+.search-form input[type="text"]:focus {
+    outline: none;
+}

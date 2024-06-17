@@ -1,0 +1,40 @@
+.editbook-details {
+    background-color: rgb(227, 247, 255);
+}
+
+.update-button-container {
+    padding: 20px 10vw 60px 10vw;
+    justify-content: flex-end;
+}
+
+.editbook-label {
+    margin: 5px 10vw 5px 10vw; 
+}
+
+.editbook-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid rgb(136, 183, 212);
+}
+
+.editbook-title {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.editbook-subtitle {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.3rem;
+}

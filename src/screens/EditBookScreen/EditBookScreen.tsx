@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Book } from '../../domain/book';
 import { getBookByISBN, updateBook } from '../../domain/API';
+import { IoIosArrowBack } from "react-icons/io";
 
 export function EditBookScreen() {
 
@@ -96,42 +97,48 @@ export function EditBookScreen() {
     }
 
     return (
-        <div>
-        <button onClick={handleClickCancel} className="button">Cancel</button>
-        <form onSubmit={handleSubmit}>
-            <label>
-                Title:
+        <div className="editbook-details">
+        <button onClick={handleClickCancel} className="button goback-button"><IoIosArrowBack /></button>
+        <form className="editbook-form" onSubmit={handleSubmit}>
+            <label className="blue-color bold-label2 editbook-title editbook-label">
+                <span className="blue-color bold-label2 editbook-title">Title: </span>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
             </label>
-            <label>
-                Subtitle:
+            <label className="editbook-subtitle bold-label editbook-label">
+                <span className="editbook-subtitle bold-label">Subtitle: </span>
                 <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
             </label>
-            <label>
-                ISBN:
+            <label className="editbook-label">
+                <span className="bold-label">ISBN: </span>
                 <input type="text" value={isbn} onChange={(e) => setIsbn(e.target.value)} />
             </label>
-            <label>
-                Abstract:
-                <input type="text" value={abstract} onChange={(e) => setAbstract(e.target.value)} />
+            <label className="editbook-label">
+                <span className="bold-label">Abstract: </span>
+                <textarea value={abstract} onChange={(e) => setAbstract(e.target.value)} />
             </label>
-            <label>
-                Author:
+            <label className="editbook-label">
+                <span className="bold-label">Author: </span>
                 <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
             </label>
-            <label>
-                Publisher:
+            <label className="editbook-label">
+                <span className="bold-label">Publisher: </span>
                 <input type="text" value={publisher} onChange={(e) => setPublisher(e.target.value)} />
             </label>
-            <label>
-                Price:
+            <label className="editbook-label">
+                <span className="bold-label">Price: </span>
                 <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
             </label>
-            <label>
-                Number of Pages:
+            <label className="editbook-label">
+                <span className="bold-label">Number of Pages: </span>
                 <input type="number" value={numPages} onChange={(e) => setNumPages(e.target.value)} />
             </label>
+            <div className="bookitem-cover flex flex-c">
+                <img src={book.cover} alt="Book Cover" style={{ maxWidth: '250px' }} 
+                onError={(e) => (e.currentTarget.src = "/no_cover.png")}/>
+            </div>
+            <div className="update-button-container flex">
             <button type="submit" className="button">Update</button>
+            </div>
         </form>
         {error && <p className="error">{error}</p>}
     </div>
