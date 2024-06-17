@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./AddBookScreen.css";
 import { useState } from "react";
 import { postNewBook } from "../../domain/API";
+import { IoIosArrowBack } from "react-icons/io";
 
 const AddBookScreen = () => {
   const navigate = useNavigate();
@@ -64,10 +65,11 @@ const AddBookScreen = () => {
   };
 
   return (
-    <div>
-    <h1>Add Book</h1>
-    <form onSubmit={handleSubmit}>
-    <label>
+    <div className="addbook-details">
+    <button onClick={handleCancel} className="button goback-button"><IoIosArrowBack /></button>
+    <h1 className="blue-color bold-label2">Add Book</h1>
+    <form onSubmit={handleSubmit} className="addbook-form">
+    <label className="addbook-label">
         ID:
         <input
           type="text"
@@ -75,8 +77,8 @@ const AddBookScreen = () => {
           onChange={handleIdChange}
           required
         />
-      </label>
-      <label>
+      </label >
+      <label className="addbook-label">
         Title:
         <input
           type="text"
@@ -85,7 +87,7 @@ const AddBookScreen = () => {
           required
         />
       </label>
-      <label>
+      <label className="addbook-label">
         Subtitle:
         <input
           type="text"
@@ -93,7 +95,7 @@ const AddBookScreen = () => {
           onChange={(e) => setSubtitle(e.target.value)}
         />
       </label>
-      <label>
+      <label className="addbook-label">
         ISBN:
         <input
           type="text"
@@ -102,14 +104,14 @@ const AddBookScreen = () => {
           required
         />
       </label>
-      <label>
+      <label className="addbook-label">
         Abstract:
         <textarea
           value={abstract}
           onChange={(e) => setAbstract(e.target.value)}
         />
       </label>
-      <label>
+      <label className="addbook-label">
         Author:
         <input
           type="text"
@@ -117,7 +119,7 @@ const AddBookScreen = () => {
           onChange={(e) => setAuthor(e.target.value)}
         />
       </label>
-      <label>
+      <label className="addbook-label">
         Publisher:
         <input
           type="text"
@@ -125,7 +127,7 @@ const AddBookScreen = () => {
           onChange={(e) => setPublisher(e.target.value)}
         />
       </label>
-      <label>
+      <label className="addbook-label">
         Price:
         <input
           type="text"
@@ -133,7 +135,7 @@ const AddBookScreen = () => {
           onChange={(e) => setPrice(e.target.value)}
         />
       </label>
-      <label>
+      <label className="addbook-label">
         Number of Pages:
         <input
           type="number"
@@ -141,7 +143,7 @@ const AddBookScreen = () => {
           onChange={(e) => setNumPages(e.target.value)}
         />
       </label>
-      <label>
+      <label className="addbook-label">
         User-ID:
         <input
           type="number"
@@ -149,15 +151,12 @@ const AddBookScreen = () => {
           onChange={(e) => setUserId(e.target.value)}
         />
       </label>
-      <div>
-        <button type="submit" className="button">
-          Save
-        </button>
-        <button type="button" className="button" onClick={handleCancel}>
-          Cancel
-        </button>
-      </div>
     </form>
+    <div className=" save-button-container flex">
+      <button type="submit" className="button">
+          Save
+      </button>
+    </div>
     {error && <p className="error">{error}</p>}
   </div>
   );
