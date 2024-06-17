@@ -151,12 +151,12 @@ const AddBookScreen = () => {
           onChange={(e) => setUserId(e.target.value)}
         />
       </label>
-    </form>
-    <div className=" save-button-container flex">
+      <div className=" save-button-container flex">
       <button type="submit" className="button">
           Save
       </button>
     </div>
+    </form>
     {error && <p className="error">{error}</p>}
   </div>
   );
