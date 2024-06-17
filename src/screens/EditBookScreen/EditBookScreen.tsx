@@ -9,13 +9,10 @@ import { getBookByISBN, updateBook } from '../../domain/API';
 import { IoIosArrowBack } from "react-icons/io";
 
 export function EditBookScreen() {
-
-    const navigate = useNavigate();
-
-    const { isbn } = useParams<{ isbn: string }>();
-    const effectiveIsbn = isbn || 'defaultISBN'; // Use 'defaultISBN' if isbn is undefined
-    const [book, setBook] = useState<Book | null>(null);
-    const [error, setError] = useState<string | null>(null);
+        const { isbn } = useParams<{ isbn: string }>();
+        const navigate = useNavigate();
+        const [book, setBook] = useState<Book | null>(null);
+        const [error, setError] = useState<string | null>(null);
 
     // state variables for form inputs
     const [title, setTitle] = useState('');
@@ -26,40 +23,47 @@ export function EditBookScreen() {
     const [publisher, setPublisher] = useState('');
     const [price, setPrice] = useState('');
     const [numPages, setNumPages] = useState('');
-
+ 
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const fetchedBook = await getBookByISBN(effectiveIsbn);
-                setBook(fetchedBook);
-                setError(null);
-                // Initialize form fields with book data
-                setTitle(fetchedBook.title);
-                setSubtitle(fetchedBook.subtitle);
-                setId(fetchedBook.id);
-                setAbstract(fetchedBook.abstract);
-                setAuthor(fetchedBook.author);
-                setPublisher(fetchedBook.publisher);
-                setPrice(fetchedBook.price);
-                setNumPages(fetchedBook.numPages.toString());
+                if (typeof isbn === 'undefined') {
+                    console.error('ISBN is undefined');
+                    setError('ISBN is required.');
+                    return;
+                }
+                const fetchedBook = await getBookByISBN(isbn);
+                if (fetchedBook) {
+                    setBook(fetchedBook);
+                    // Set form fields with fetched book details
+                    setTitle(fetchedBook.title || '');
+                    setSubtitle(fetchedBook.subtitle || '');
+                    setId(fetchedBook.id || '');
+                    setAbstract(fetchedBook.abstract || '');
+                    setAuthor(fetchedBook.author || '');
+                    setPublisher(fetchedBook.publisher || '');
+                    setPrice(fetchedBook.price || '');
+                    setNumPages(fetchedBook.numPages ? fetchedBook.numPages.toString() : '');
+                    setError(null);
+                }
             } catch (error) {
                 console.error('Error fetching book:', error);
                 setError('Error fetching book details. Please try again later.');
                 setBook(null);
             }
         };
-
+    
         if (isbn) {
             fetchBook();
         }
-    }, [isbn]);
+    }, [isbn]); // Depend on isbn to refetch when it changes
 
     if (!isbn) {
         return <div>No ISBN provided</div>;
     }
 
     if (!book) {
-        return <div>Loading...</div>;
+        return <div>Loading book details...</div>;
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -98,7 +102,7 @@ export function EditBookScreen() {
 
     function handleClickCancel() {
         console.log("Cancel");
-        navigate(`/books/${effectiveIsbn}`);
+        navigate(`/books/${isbn}`);
     }
 
     return (
