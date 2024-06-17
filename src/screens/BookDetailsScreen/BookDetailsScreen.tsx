@@ -48,25 +48,29 @@ const BookDetailsScreen: React.FC = () => {
     }
 
     return (
-        <div>
-            <button onClick={handleClick} className="button"><IoIosArrowBack /></button>
+        <div className="book-details">
+            <button onClick={handleClick} className="button goback-button"><IoIosArrowBack /></button>
             {error && <p>{error}</p>}
             {book && (
-                <div className="book-details-container flex">
-                    <h1 className="blue-color bold-label2 flex flex-c">Title: {book.title}</h1>
-                    <h2 className="bold-label flex flex-c">Subtitle: {book.subtitle}</h2>
+                <div className="book-details-container">
+                    <h1 className="blue-color bold-label2">Title: {book.title}</h1>
+                    <h2 className="bold-label">Subtitle: {book.subtitle}</h2>
                     <p><span className="bold-label">ISBN: </span>{book.isbn}</p>
                     <p><span className="bold-label">Abstract: </span>{book.abstract}</p>
                     <p><span className="bold-label">Author: </span>{book.author}</p>
                     <p><span className="bold-label">Publisher: </span>{book.publisher}</p>
                     <p><span className="bold-label">Price: </span>{book.price}</p>
                     <p><span className="bold-label">Number of Pages: </span>{book.numPages}</p>
-                    <img src={book.cover} alt="Book Cover" style={{ maxWidth: '150px' }} 
-                    onError={(e) => (e.currentTarget.src = "/no_cover.png")}/>
+                    <div className="bookitem-cover flex flex-c">
+                        <img src={book.cover} alt="Book Cover" style={{ maxWidth: '250px' }} 
+                        onError={(e) => (e.currentTarget.src = "/no_cover.png")}/>
+                    </div>
                 </div>
             )}
-            <button onClick={handleClick2} className="button">Edit Book</button>
-            <DeleteBookButton isbn={book.id}/>
+            <div className="bookdetails-button-container flex">
+                <button onClick={handleClick2} className="button">Edit Book</button>
+                <DeleteBookButton isbn={book.id}/>
+            </div>
         </div>
     );
 };

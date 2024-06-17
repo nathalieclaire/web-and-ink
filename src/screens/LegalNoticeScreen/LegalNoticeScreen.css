@@ -1,6 +1,6 @@
 .legal-container h1 {
-    margin-bottom: 20px;
-    margin-top: 30px;
+    padding-bottom: 20px;
+    padding-top: 30px;
 }
 
 .legal-container h2 {
@@ -13,6 +13,8 @@
 }
 
 .legal-container {
-    margin-bottom: 10vh;
+    padding-bottom: 10vh;
+    background-color: rgb(227, 247, 255);
 }
+
 

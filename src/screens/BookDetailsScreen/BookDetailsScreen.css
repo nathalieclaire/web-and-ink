@@ -1,18 +1,36 @@
+.book-details {
+    background-color: rgb(227, 247, 255);
+}
+
 .book-details-container {
+    display: flex;
     flex-direction: column;
     margin-bottom: 10vh;
 }
 
 .book-details-container h1 {
-    text-align: center;
+    text-align: left;
     margin: 30px 10vw 20px;
 }
 
 .book-details-container h2 {
-    margin: 10px 10vw 20px 10vw;
-    text-align: center;
+    margin: 10px 10vw 30px 10vw;
+    text-align: left;
 }
 
 .book-details-container p {
-    margin: 5px 10vh;
+    margin: 5px 10vw 5px 10vw;
+}
+
+.bookitem-cover {
+    margin: 5px 0vw 5px 0vw;
+}
+
+.goback-button {
+    margin: 20px 10vw 20px 10vw;
+}
+
+.bookdetails-button-container {
+    padding: 20px 10vw 60px 10vw;
+    justify-content: flex-end;
 }
