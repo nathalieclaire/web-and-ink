@@ -35,10 +35,6 @@ export const router = createBrowserRouter([
                 element: <BookDetailsScreen />,
             },
             {
-                path: "/page/:pageNumber",
-                element: <HomeScreen />,
-            },
-            {
                 path: "/edit-book/:id",
                 element: <EditBookScreen />,
             },

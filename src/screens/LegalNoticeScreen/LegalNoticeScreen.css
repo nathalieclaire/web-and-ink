@@ -1,14 +1,9 @@
 .legal-container h1 {
     padding-bottom: 20px;
-    padding-top: 30px;
+    padding-top: 50px;
 }
 
-.legal-container h2 {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.legal-container p {
+.legal-container p, .legal-container h2 {
     margin: 40px 10vw 40px 10vw;
 }
 

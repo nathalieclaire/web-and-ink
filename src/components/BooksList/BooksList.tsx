@@ -34,6 +34,12 @@ const BooksList: React.FC<BookItemProps> = ({ books, passedPage, setCurrentPage 
           <BookItem key={index} book={book} /> // Pass each book as a prop to BookItem
         ))}
       </div>
+      <Pagination 
+        totalBooks={books.length} 
+        booksPerPage={booksPerPage} 
+        currentPage={passedPage} 
+        setCurrentPage={setCurrentPage} 
+      />
     </div>
   );
 };
