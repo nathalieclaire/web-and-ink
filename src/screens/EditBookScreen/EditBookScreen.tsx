@@ -82,7 +82,7 @@ export function EditBookScreen() {
             };
     
             try {
-                await updateBook(isbn, updatedBook); 
+                await updateBook(id, updatedBook); 
                 navigate(`/books/${id}`); // Redirect to BookDetailsScreen after successful update
             } catch (error) {
                 console.error('Error updating book:', error);
