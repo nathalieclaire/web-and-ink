@@ -6,10 +6,12 @@ import AddBooksButton from '../../components/AddBooksButton/AddBooksButton';
 import { HiOutlineRefresh } from "react-icons/hi";
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Pagination from '../../components/Pagination/Pagination';
+import { useState } from 'react';
 
 function HomeScreen() {
 
     const { books, state, error, refresh } = useBooks();
+    const [currentPage, setCurrentPage] = useState(1); // Manage the current page state
 
     let content;
 
@@ -23,7 +25,7 @@ function HomeScreen() {
             console.log("error", error?.message);
             break;
         case 'success':
-            content = <BooksList books={books} />;
+            content = <BooksList books={books} passedPage={currentPage} setCurrentPage={setCurrentPage} />;
             console.log("success");
             break;
         default:

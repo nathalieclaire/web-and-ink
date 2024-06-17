@@ -1,40 +1,33 @@
 import React from 'react';
-import './Pagination.css'; 
-import { Link, useLocation } from 'react-router-dom';
+import './Pagination.css';
 
-interface PaginationProps {
+type PaginationProps = {
     totalBooks: number;
     booksPerPage: number;
+    currentPage: number;
     setCurrentPage: (page: number) => void;
-}
+};
 
-function Pagination({ totalBooks, booksPerPage, setCurrentPage }: PaginationProps) {
-    const pages = [];
-    const location = useLocation();
+const Pagination: React.FC<PaginationProps> = ({ totalBooks, booksPerPage, currentPage, setCurrentPage }) => {
+    const totalPages = Math.ceil(totalBooks / booksPerPage);
 
-    for (let i = 1; i <= Math.ceil(totalBooks / booksPerPage); i++) {
-        pages.push(i);
-    }
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
 
     return (
-        <div className="App pagination-container flex flex-c">
-            {
-                pages.map((pageNumber, index) => {
-                    const isActive = location.pathname === `/page/${pageNumber}`;
-                    return (
-                        <Link 
-                            key={index} 
-                            to={`/page/${pageNumber}`} 
-                            className={`pagination-button ${isActive ? 'active2' : ''}`}
-                            onClick={() => setCurrentPage(pageNumber)}
-                        >
-                            {pageNumber}
-                        </Link>
-                    );
-                })
-            }
+        <div className="pagination-container flex flex-c">
+            {[...Array(totalPages)].map((_, index) => (
+                <button
+                    key={index}
+                    className={`pagination-button ${currentPage === index + 1 ? 'active2' : ''}`}
+                    onClick={() => handlePageChange(index + 1)}
+                >
+                    {index + 1}
+                </button>
+            ))}
         </div>
     );
-}
+};
 
 export default Pagination;
