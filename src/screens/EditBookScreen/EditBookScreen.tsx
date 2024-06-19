@@ -9,7 +9,7 @@ import { getBookByISBN, updateBook } from '../../domain/API';
 import { IoIosArrowBack } from "react-icons/io";
 
 export function EditBookScreen() {
-        const { isbn } = useParams<{ isbn: string }>();
+        const { isbn: initialIsbn } = useParams<{ isbn: string }>();
         const navigate = useNavigate();
         const [book, setBook] = useState<Book | null>(null);
         const [error, setError] = useState<string | null>(null);
@@ -17,7 +17,7 @@ export function EditBookScreen() {
     // state variables for form inputs
     const [title, setTitle] = useState('');
     const [subtitle, setSubtitle] = useState('');
-    const [id, setId] = useState('');
+    const [isbn, setIsbn] = useState(initialIsbn || ''); // Updated to manage ISBN as a state
     const [abstract, setAbstract] = useState('');
     const [author, setAuthor] = useState('');
     const [publisher, setPublisher] = useState('');
@@ -27,10 +27,11 @@ export function EditBookScreen() {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                if (typeof isbn === 'undefined') {
-                    console.error('ISBN is undefined');
-                    setError('ISBN is required.');
-                    return;
+                if (!isbn) {
+                console.error('ISBN is undefined');
+                setError('ISBN is required.');
+                // Clear form fields here if needed
+                return;
                 }
                 const fetchedBook = await getBookByISBN(isbn);
                 if (fetchedBook) {
@@ -38,25 +39,29 @@ export function EditBookScreen() {
                     // Set form fields with fetched book details
                     setTitle(fetchedBook.title || '');
                     setSubtitle(fetchedBook.subtitle || '');
-                    setId(fetchedBook.id || '');
+                    setIsbn(fetchedBook.isbn || '');
                     setAbstract(fetchedBook.abstract || '');
                     setAuthor(fetchedBook.author || '');
                     setPublisher(fetchedBook.publisher || '');
                     setPrice(fetchedBook.price || '');
                     setNumPages(fetchedBook.numPages ? fetchedBook.numPages.toString() : '');
                     setError(null);
+                } else {
+                    // Handle case where book does not exist
+                    setError('This book does not exist. Please check the ISBN and try again.');
+                    // Optionally clear form fields here
+                    setBook(null);
                 }
             } catch (error) {
                 console.error('Error fetching book:', error);
                 setError('Error fetching book details. Please try again later.');
                 setBook(null);
+                // Optionally clear form fields here
             }
         };
     
-        if (isbn) {
-            fetchBook();
-        }
-    }, [isbn]); // Depend on isbn to refetch when it changes
+        fetchBook();
+    }, [isbn]); // Depend on isbn state to refetch when it changes
 
     if (!isbn) {
         return <div>No ISBN provided</div>;
@@ -88,7 +93,7 @@ export function EditBookScreen() {
             try {
                 const updated = await updateBook(isbn, updatedBook); 
                 if (updated) {
-                    navigate(`/books/${updatedBook.isbn}`);
+                    navigate(`/books/${isbn}`);
                 } else {
                     console.error('Error updating book: Updated book is undefined.');
                     setError('Error updating book. Please try again.');
@@ -102,7 +107,7 @@ export function EditBookScreen() {
 
     function handleClickCancel() {
         console.log("Cancel");
-        navigate(`/books/${isbn}`);
+        navigate(`/books/${isbn}`); // Navigate using the state-managed ISBN
     }
 
     return (
@@ -119,7 +124,7 @@ export function EditBookScreen() {
             </label>
             <label className="editbook-label">
                 <span className="bold-label">ISBN: </span>
-                // also show the ISBN here! (it's effectiveIsbn) and make it editable so the new isbn is also shown in the route
+                <input type="text" value={isbn} onChange={(e) => setIsbn(e.target.value)} />
             </label>
             <label className="editbook-label">
                 <span className="bold-label">Abstract: </span>

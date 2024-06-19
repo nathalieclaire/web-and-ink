@@ -55,15 +55,6 @@ const AddBookScreen = () => {
     navigate("/"); // Navigate back to the home screen
   };
 
-  // the API wants "isbn" as a string but I had problems deleting books when I 
-  // accidentally used characters for the isbn when I created a book
-  const handleIsbnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (/^\d*$/.test(value)) { // Allow only numeric input
-      setIsbn(value);
-    }
-  };
-
   return (
     <div className="addbook-details">
     <button onClick={handleCancel} className="button goback-button"><IoIosArrowBack /></button>
@@ -98,10 +89,11 @@ const AddBookScreen = () => {
       <label className="addbook-label">
         <span className="bold-label">ISBN: </span>
         <input
-          type="text"
-          value={isbn}
-          onChange={handleIsbnChange}
-          required
+            type="text"
+            value={isbn}
+            onChange={(e) => setIsbn(e.target.value)}
+            pattern="\d+"
+            required
         />
       </label>
       <label className="addbook-label">
