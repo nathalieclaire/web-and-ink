@@ -24,6 +24,11 @@
     justify-content: right;
 }
 
+.search-button:hover {
+    color: #416e94;
+    transform: scale(1.1);
+}
+
 .search-form input[type="text"]:hover::placeholder {
     color: #416e94;
 }

@@ -9,6 +9,11 @@
 
 .active {
     color: rgb(131, 208, 255);
+    margin-left: 1vh;
+    margin-right: 1vh;
+    font-weight: 500;
+    transition: var(--transition);
+
 }
 
 nav span {
