@@ -14,10 +14,33 @@
     max-width: 770px;
     font-size: 1.5rem;
     text-align: center;
+    margin-top: 5vh;
+}
+
+.logo-container {
+    margin-top: 2.8rem;
+    flex-wrap: wrap;
 }
   
 .logo {
     width: 300px;
     height: auto;
-    margin-top: 2.8rem;
+    margin-right: -5vh;
+}
+
+.logo-book {
+    width: 200px;
+    height: auto;
+}
+
+@media (max-width: 530px) {
+    .logo {
+        margin-right: 0vh;
+    }
+}
+
+@media (min-width: 1000px) {
+    .logo {
+        margin-right: 0.5vh;
+    }
 }
