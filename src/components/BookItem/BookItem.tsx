@@ -25,7 +25,7 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
               ) : (
                 <div className="no-cover">
                   <img src="/no_cover.png" /* Use the absolut path from root here to prevent isssues! */
-                  alt="Like Button"
+                  alt="No Cover Available"
                   />
                 </div>
               )}
@@ -45,7 +45,7 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
         </div>
       </div>
       <div className = "like-container">
-        <img src="/like_icon.png" /* Use the absolut path from root here to prevent isssues! */
+        <img src={likes >= 1 ? "/like_icon_blue.png" : "/like_icon.png"} /* Use the absolut path from root here to prevent isssues! */
             alt="Like Button" 
             className='like-button'
             onClick={handleLike} 
