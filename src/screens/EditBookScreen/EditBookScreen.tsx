@@ -3,7 +3,7 @@ import { useRouteError, isRouteErrorResponse } from "react-router-dom";
 import './EditBookScreen.css';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Book } from '../../domain/book';
 import { getBookByISBN, updateBook } from '../../domain/API';
 import { IoIosArrowBack } from "react-icons/io";
@@ -13,11 +13,13 @@ export function EditBookScreen() {
         const navigate = useNavigate();
         const [book, setBook] = useState<Book | null>(null);
         const [error, setError] = useState<string | null>(null);
+        // create a ref to store the initial book details
+        const [initialBook, setInitialBook] = useState<Book | null>(null);
 
     // state variables for form inputs
     const [title, setTitle] = useState('');
     const [subtitle, setSubtitle] = useState('');
-    const [isbn, setIsbn] = useState(initialIsbn || ''); // Updated to manage ISBN as a state
+    const [isbn, setIsbn] = useState(initialIsbn || '');
     const [abstract, setAbstract] = useState('');
     const [author, setAuthor] = useState('');
     const [publisher, setPublisher] = useState('');
@@ -30,7 +32,6 @@ export function EditBookScreen() {
                 if (!isbn) {
                 console.error('ISBN is undefined');
                 setError('ISBN is required.');
-                // Clear form fields here if needed
                 return;
                 }
                 const fetchedBook = await getBookByISBN(isbn);
@@ -45,23 +46,21 @@ export function EditBookScreen() {
                     setPublisher(fetchedBook.publisher || '');
                     setPrice(fetchedBook.price || '');
                     setNumPages(fetchedBook.numPages ? fetchedBook.numPages.toString() : '');
+                    setInitialBook(fetchedBook); // update the state with the fetched book
                     setError(null);
                 } else {
-                    // Handle case where book does not exist
                     setError('This book does not exist. Please check the ISBN and try again.');
-                    // Optionally clear form fields here
                     setBook(null);
                 }
             } catch (error) {
                 console.error('Error fetching book:', error);
                 setError('Error fetching book details. Please try again later.');
                 setBook(null);
-                // Optionally clear form fields here
             }
         };
     
         fetchBook();
-    }, [isbn]); // Depend on isbn state to refetch when it changes
+    }, []);
 
     if (!isbn) {
         return <div>No ISBN provided</div>;
@@ -91,9 +90,15 @@ export function EditBookScreen() {
             };
     
             try {
-                const updated = await updateBook(isbn, updatedBook); 
+                const updated = await updateBook(isbn, updatedBook);
+                console.log('updatedBook:', updatedBook);
+                console.log('updated:', updated);
+                console.log('initialIsbn:', initialIsbn);
+                console.log('fetchedBook:', initialBook);
                 if (updated) {
-                    navigate(`/books/${isbn}`);
+                    console.log('updated:', updated);
+                    console.log('updatedBook!!:', updatedBook);
+                    navigate(`/books/${updatedBook.isbn}`);
                 } else {
                     console.error('Error updating book: Updated book is undefined.');
                     setError('Error updating book. Please try again.');
@@ -106,8 +111,7 @@ export function EditBookScreen() {
     
 
     function handleClickCancel() {
-        console.log("Cancel");
-        navigate(`/books/${isbn}`); // Navigate using the state-managed ISBN
+        navigate(`/books/${isbn}`);
     }
 
     return (
