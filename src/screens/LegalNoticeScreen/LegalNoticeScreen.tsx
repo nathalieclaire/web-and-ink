@@ -5,7 +5,7 @@ function LegalNoticeScreen() {
   return (
     <div className="App legal-container">
         <h1 className="blue-color bold-label2 flex flex-c">Legal Notice</h1>
-        <h2 className="bold-label">Welcome to Web&Ink</h2>
+        <h2 className="legal-heading bold-label">Welcome to Web&Ink</h2>
         <p>
           At Web & Ink, we are committed to providing a seamless and enriching experience for our 
           users. This Legal Notice outlines the terms and conditions governing the use of our 
@@ -13,7 +13,7 @@ function LegalNoticeScreen() {
           accessing and using Web & Ink, you agree to adhere to these terms. Please read them 
           carefully to understand your rights and obligations while using our services.
         </p>
-        <h2 className="bold-label">Intellectual Property</h2>
+        <h2 className="legal-heading bold-label">Intellectual Property</h2>
         <p>
           All content on the Web & Ink website, including text, images, graphics, logos, and 
           software, is the property of Web & Ink or its content suppliers and is protected by 
@@ -22,7 +22,7 @@ function LegalNoticeScreen() {
           or trade dress without our express written consent. Web & Ink reserves all rights not 
           expressly granted in these terms.
         </p>
-        <h2 className="bold-label">Disclaimer of Liability</h2>
+        <h2 className="legal-heading bold-label">Disclaimer of Liability</h2>
         <p>
           While we strive to ensure the accuracy and reliability of the information provided on our 
           website, Web & Ink makes no representations or warranties of any kind, express or implied, 
@@ -33,7 +33,7 @@ function LegalNoticeScreen() {
           indirect or consequential loss or damage, or any loss or damage whatsoever arising from 
           loss of data or profits arising out of, or in connection with, the use of this website.
         </p>
-        <h2 className="bold-label">Privacy and Data Protection</h2>
+        <h2 className="legal-heading bold-label">Privacy and Data Protection</h2>
         <p>
           Your privacy is of utmost importance to us. Web & Ink is committed to protecting your 
           personal data and ensuring it is processed in accordance with applicable data protection 

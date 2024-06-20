@@ -23,6 +23,12 @@
 .book-item-cover img {
     width: 150px;
     height: auto;
+    transition: var(--transition);
+}
+
+.book-item-cover img:hover {
+    transform: scale(1.1);
+    transition: var(--transition);
 }
 
 .no-cover img{
@@ -36,6 +42,12 @@
 .book-item-heading {
     padding: 0px 0px 20px 0px;
     text-align: left;
+    transition: var(--transition);
+}
+
+.book-item-heading:hover {
+    transform: translateY(-10px);
+    transition: var(--transition);
 }
 
 .book-item-heading h1 {
@@ -69,6 +81,12 @@
     width: 25px;
     height: auto; /* Maintain aspect ratio */
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.like-button:hover {
+    transform: scale(1.1);
+    transition: var(--transition);
 }
   
 .like-button-text {

@@ -22,10 +22,12 @@
     background: none; 
     cursor: pointer;
     justify-content: right;
+    transition: var(--transition);
 }
 
 .search-button:hover {
     color: #416e94;
+    transition: var(--transition);
     transform: scale(1.1);
 }
 

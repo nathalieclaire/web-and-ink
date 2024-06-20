@@ -12,4 +12,13 @@
     background-color: rgb(227, 247, 255);
 }
 
+.legal-heading {
+    transition: var(--transition);
+}
+
+.legal-heading:hover {
+    transform: translateY(-10px);
+    transition: var(--transition);
+}
+
 

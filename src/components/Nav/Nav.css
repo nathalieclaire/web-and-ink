@@ -5,15 +5,21 @@
     font-size: 1.3rem;
     padding-left: 1.2vh;
     padding-right: 1.2vh;
+    display: inline-block; /* Ensure elements are block-level for transforms to make hover effect possible */
+    transition: var(--transition);
+}
+
+.nav-item:hover {
+    transform: translateY(-8px);
+    transition: var(--transition);
 }
 
 .active {
     color: rgb(131, 208, 255);
-    margin-left: 1vh;
-    margin-right: 1vh;
+    margin-left: 2px;
+    margin-right: 2px;
     font-weight: 500;
     transition: var(--transition);
-
 }
 
 nav span {
