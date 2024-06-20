@@ -96,7 +96,7 @@ export function EditBookScreen() {
                 console.log('initialIsbn:', initialIsbn);
                 console.log('fetchedBook:', initialBook);
                 if (updated) {
-                    console.log('updated:', updated);
+                    console.log('updated!!:', updated);
                     console.log('updatedBook!!:', updatedBook);
                     navigate(`/books/${updatedBook.isbn}`);
                 } else {
