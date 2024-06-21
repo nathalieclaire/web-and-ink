@@ -18,13 +18,14 @@ const BookDetailsScreen: React.FC = () => {
     }
 
     const handleClick2 = () => {
-        navigate(`/edit-book/${effectiveIsbn}`);
+        navigate(`/edit-book/${isbn}`);
     }
 
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const fetchedBook = await getBookByISBN(effectiveIsbn);
+                const fetchedBook = await getBookByISBN(isbn!);
+                console.log(isbn);
                 setBook(fetchedBook);
                 setError(null);
             } catch (error) {

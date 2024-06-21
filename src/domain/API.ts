@@ -76,10 +76,12 @@ async function postNewBook(book: Book): Promise<Book> {
 }
 
 // Updating an existing book
-async function updateBook(isbn: string, updatedBook: Book): Promise<Book | undefined> {
+async function updateBook(isbn: string, updatedBook: Book, oldISBN: string): Promise<Book | undefined> {
     try {
-        const response = await fetch(`http://localhost:4730/books/${isbn}`, {
-            method: 'PUT',
+        const response = await fetch(`http://localhost:4730/books`, {
+            // used "POST" instead because "PUT" doesn't create a new route!!
+            // I had the problem that when you clicked on the book the initial ISBN was still displayed in the route
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -89,7 +91,11 @@ async function updateBook(isbn: string, updatedBook: Book): Promise<Book | undef
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const book: Book = await response.json();
+        // bc we created a new route with POST he have to delete the old one!
+        deleteBook(oldISBN);
         return book;
+
+        // return book;
     } catch (error) {
         console.error('Error:', error);
     }
@@ -99,7 +105,7 @@ async function updateBook(isbn: string, updatedBook: Book): Promise<Book | undef
 async function deleteBook(isbn: string): Promise<boolean | undefined> {
     try {
         const response = await fetch(`http://localhost:4730/books/${isbn}`, {
-            method: 'DELETE',
+            method: 'DELETE'
         });
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

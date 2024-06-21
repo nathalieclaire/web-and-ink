@@ -34,7 +34,7 @@ export function EditBookScreen() {
                 setError('ISBN is required.');
                 return;
                 }
-                const fetchedBook = await getBookByISBN(isbn);
+                const fetchedBook = await getBookByISBN(initialIsbn!);
                 if (fetchedBook) {
                     setBook(fetchedBook);
                     // Set form fields with fetched book details
@@ -90,7 +90,7 @@ export function EditBookScreen() {
             };
     
             try {
-                const updated = await updateBook(isbn, updatedBook);
+                const updated = await updateBook(isbn, updatedBook, initialIsbn!);
                 console.log('updatedBook:', updatedBook);
                 console.log('updated:', updated);
                 console.log('initialIsbn:', initialIsbn);
@@ -99,12 +99,15 @@ export function EditBookScreen() {
                     console.log('updated!!:', updated);
                     console.log('updatedBook!!:', updatedBook);
                     navigate(`/books/${updatedBook.isbn}`);
+                    // navigate(`/books/1234567890123`);
                 } else {
-                    console.error('Error updating book: Updated book is undefined.');
+                    // console.error('Error updating book: Updated book is undefined.');
+                    console.log(error);
                     setError('Error updating book. Please try again.');
                 }
             } catch (error) {
-                console.error('Error updating book:', error);
+                // console.error('Error updating book:', error);
+                console.log("second error: " + error);
                 setError('Error updating book. Please try again.');
             }
         };
