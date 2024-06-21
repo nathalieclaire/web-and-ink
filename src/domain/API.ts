@@ -108,11 +108,12 @@ async function deleteBook(isbn: string): Promise<boolean | undefined> {
             method: 'DELETE'
         });
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error('Failed to delete the book.');
         }
         return response.ok;
     } catch (error) {
         console.error('Error:', error);
+        return false;
     }
 }
 

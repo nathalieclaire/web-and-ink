@@ -62,18 +62,17 @@ export function EditBookScreen() {
         fetchBook();
     }, []);
 
-    if (!isbn) {
-        return <div>No ISBN provided</div>;
-    }
-
     if (!book) {
         return <div>Loading book details...</div>;
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // Take the values from the form fields
-    // update with UpdateBook from API.ts
-    // onsubmit: user has to be directed to "/books/:isbn" with: useNavigate()
+        if (!isbn) {
+            return <div>No ISBN provided</div>;
+        }
+        // Take the values from the form fields
+        // update with UpdateBook from API.ts
+        // onsubmit: user has to be directed to "/books/:isbn" with: useNavigate()
 
             event.preventDefault();
             // Prepare updated book object
@@ -91,17 +90,9 @@ export function EditBookScreen() {
     
             try {
                 const updated = await updateBook(isbn, updatedBook, initialIsbn!);
-                console.log('updatedBook:', updatedBook);
-                console.log('updated:', updated);
-                console.log('initialIsbn:', initialIsbn);
-                console.log('fetchedBook:', initialBook);
                 if (updated) {
-                    console.log('updated!!:', updated);
-                    console.log('updatedBook!!:', updatedBook);
                     navigate(`/books/${updatedBook.isbn}`);
-                    // navigate(`/books/1234567890123`);
                 } else {
-                    // console.error('Error updating book: Updated book is undefined.');
                     console.log(error);
                     setError('Error updating book. Please try again.');
                 }

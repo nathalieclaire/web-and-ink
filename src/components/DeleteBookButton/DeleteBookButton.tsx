@@ -6,12 +6,16 @@ type DeleteBookButtonProps = {
     isbn: string;
 };
 
+// Note: When "Delete Book" is clicked, the book is actually deleted from the list
+// but isDeleted is still returning false and thus "Failed to delete the book."
 const DeleteBookButton: React.FC<DeleteBookButtonProps> = ({ isbn }) => {
     const navigate = useNavigate();
 
     const handleDelete = async () => {
         const isDeleted = await deleteBook(isbn);
+        console.log(isDeleted);
         if (isDeleted) {
+            console.log('Book deleted successfully.');
             navigate('/');
         } else {
             console.error('Failed to delete the book.');
