@@ -1,21 +1,59 @@
 .addbook-details {
     background-color: rgb(227, 247, 255);
+    position: relative;
+    padding-bottom: 20vh;
 }
 
 .save-button-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     padding: 20px 10vw 60px 10vw;
-    justify-content: flex-end;
 }
 
 .addbook-details h1 {
-    margin: 30px 10vw 20px;
+    margin: 30px 10vw 60px;
 }
 
 .addbook-label {
-    margin: 5px 10vw 5px 10vw; 
+    display: contents; 
 }
 
 .addbook-form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.addbook-text {
+    margin-left: 10vh; 
+}
+
+.addbook-field {
+    margin-right: 10vh; 
+}
+
+@media (max-width: 530px) {
+    .addbook-form {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 700px) {
+    .addbook-field {
+        margin-right: 30vh; 
+    }
+}
+
+@media (min-width: 780px) {
+    .addbook-field {
+        margin-right: 40vh; 
+    }
+}
+
+@media (min-width: 1000px) {
+    .addbook-form {
+        margin-left: 20vh; 
+    }
 }

@@ -61,8 +61,9 @@ const AddBookScreen = () => {
     <h1 className="blue-color bold-label2">Add Book</h1>
     <form onSubmit={handleSubmit} className="addbook-form">
     <label className="addbook-label">
-      <span className="bold-label">ID: </span>
+      <span className="addbook-text bold-label">ID: </span>
         <input
+          className="addbook-field"
           type="text"
           value={id}
           onChange={(e) => setId(e.target.value)}
@@ -70,8 +71,9 @@ const AddBookScreen = () => {
         />
       </label >
       <label className="addbook-label">
-        <span className="bold-label">Title: </span>
+        <span className="addbook-text bold-label">Title: </span>
         <input
+          className="addbook-field"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -79,16 +81,18 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">Subtitle: </span>
+        <span className="addbook-text  bold-label">Subtitle: </span>
         <input
+          className="addbook-field"
           type="text"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">ISBN: </span>
+        <span className="addbook-text  bold-label">ISBN: </span>
         <input
+            className="addbook-field"
             type="text"
             value={isbn}
             onChange={(e) => setIsbn(e.target.value)}
@@ -97,53 +101,59 @@ const AddBookScreen = () => {
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">Abstract: </span>
+        <span className="addbook-text bold-label">Abstract: </span>
         <textarea
+          className="addbook-field"
           value={abstract}
           onChange={(e) => setAbstract(e.target.value)}
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">Author: </span>
+        <span className="addbook-text bold-label">Author: </span>
         <input
+          className="addbook-field"
           type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">Publisher: </span>
+        <span className="addbook-text bold-label">Publisher: </span>
         <input
+          className="addbook-field"
           type="text"
           value={publisher}
           onChange={(e) => setPublisher(e.target.value)}
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">Price: </span>
+        <span className="addbook-text bold-label">Price: </span>
         <input
+          className="addbook-field"
           type="text"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">Number of Pages: </span>
+        <span className="addbook-text bold-label">Number of Pages: </span>
         <input
+          className="addbook-field"
           type="number"
           value={numPages}
           onChange={(e) => setNumPages(e.target.value)}
         />
       </label>
       <label className="addbook-label">
-        <span className="bold-label">User-ID: </span>
+        <span className="addbook-text bold-label">User-ID: </span>
         <input
+          className="addbook-field"
           type="number"
           value={userId}
           onChange={(e) => setUserId(e.target.value)}
         />
       </label>
-      <div className=" save-button-container flex">
+      <div className="save-button-container flex">
       <button type="submit" className="button">
           Save
       </button>
