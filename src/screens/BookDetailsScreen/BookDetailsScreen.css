@@ -23,7 +23,7 @@
 }
 
 .bookitem-cover {
-    margin: 5px 0vw 5px 0vw;
+    margin-top: 7vh;
     transition: var(--transition);
 }
 

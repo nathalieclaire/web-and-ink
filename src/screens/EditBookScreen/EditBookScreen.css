@@ -1,14 +1,18 @@
 .editbook-details {
     background-color: rgb(227, 247, 255);
+    position: relative;
+    padding-bottom: 20vh;
 }
 
 .update-button-container {
-    padding: 20px 10vw 60px 10vw;
-    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0vh 10vh 10vh 10vh;
 }
 
-.editbook-label {
-    margin: 5px 10vw 5px 10vw; 
+.editbook-label { 
+    display: contents; 
 }
 
 .editbook-form {
@@ -37,4 +41,53 @@ textarea:focus {
     font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: 1.3rem;
+}
+
+.editbook-form {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1vh;
+    align-items: center;
+}
+
+.editbook-text {
+    margin-left: 10vh; 
+}
+
+.editbook-field {
+    margin-right: 10vh; 
+}
+
+.editbook-cover {
+    justify-content: center;
+    margin-top: 7vh;
+}
+
+.editbook-cover:hover {
+    transform: scale(1.1);
+    transition: var(--transition);
+}
+
+@media (max-width: 530px) {
+    .editbook-form {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 700px) {
+    .editbook-field {
+        margin-right: 30vh; 
+    }
+}
+
+@media (min-width: 780px) {
+    .editbook-field {
+        margin-right: 40vh; 
+    }
+}
+
+@media (min-width: 1000px) {
+    .editbook-form {
+        margin-left: 20vh; 
+    }
 }

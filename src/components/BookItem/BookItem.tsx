@@ -36,7 +36,9 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
           <NavLink to={`/books/${book.id}`}>
             <h1><span className="blue-color bold-label2">{book.title}</span></h1>
           </ NavLink>
+          <NavLink to={`/books/${book.id}`}>
           <h2>{book.subtitle}</h2>
+          </ NavLink>
         </div>
         <div className="book-item-text">
           <p><span className="bold-label">Publisher:</span> {book.publisher}</p>
