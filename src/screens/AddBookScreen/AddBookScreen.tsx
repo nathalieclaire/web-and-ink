@@ -60,16 +60,6 @@ const AddBookScreen = () => {
     <button onClick={handleCancel} className="button goback-button"><IoIosArrowBack /></button>
     <h1 className="blue-color bold-label2">Add Book</h1>
     <form onSubmit={handleSubmit} className="addbook-form">
-    <label className="addbook-label">
-      <span className="addbook-text bold-label">ID: </span>
-        <input
-          className="addbook-field"
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          required
-        />
-      </label >
       <label className="addbook-label">
         <span className="addbook-text bold-label">Title: </span>
         <input
