@@ -15,12 +15,6 @@
     font-size: 1.5rem;
     text-align: center;
     margin-top: 5vh;
-    transition: var(--transition);
-}
-
-.header-text:hover {
-    transition: var(--transition);
-    transform: scale(1.05);
 }
 
 .logo-container {

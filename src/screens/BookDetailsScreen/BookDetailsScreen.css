@@ -24,12 +24,6 @@
 
 .bookitem-cover {
     margin-top: 7vh;
-    transition: var(--transition);
-}
-
-.bookitem-cover:hover {
-    transform: scale(1.1);
-    transition: var(--transition);
 }
 
 .goback-button {
