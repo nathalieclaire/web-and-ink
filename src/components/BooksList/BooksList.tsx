@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Book } from "../../domain/book";
 import BookItem from './../BookItem/BookItem';
 import './BooksList.css';
@@ -8,23 +8,30 @@ type BookItemProps = {
     books: Book[];
     passedPage: number;
     setCurrentPage: (page: number) => void;
+    searchQuery: string;
 };
 
-const BooksList: React.FC<BookItemProps> = ({ books, passedPage, setCurrentPage }) => {
+const BooksList: React.FC<BookItemProps> = ({ books, passedPage, setCurrentPage, searchQuery }) => {
   const [booksPerPage, setBooksPerPage] = React.useState(20);
 
   useEffect(() => {
     setCurrentPage(passedPage);
   }, [passedPage, setCurrentPage]);
 
+  // Filter books based on the search query
+  const filteredBooks = books.filter(book => 
+    (book.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+  console.log(filteredBooks);
+
   const lastBookIndex = passedPage * booksPerPage;
   const firstBookIndex = lastBookIndex - booksPerPage;
-  const currentBooks = books.slice(firstBookIndex, lastBookIndex);
+  const currentBooks = filteredBooks.slice(firstBookIndex, lastBookIndex);
 
   return (
     <div className="books-list">
       <Pagination 
-        totalBooks={books.length} 
+        totalBooks={filteredBooks.length} 
         booksPerPage={booksPerPage} 
         currentPage={passedPage} 
         setCurrentPage={setCurrentPage} 
@@ -35,7 +42,7 @@ const BooksList: React.FC<BookItemProps> = ({ books, passedPage, setCurrentPage 
         ))}
       </div>
       <Pagination 
-        totalBooks={books.length} 
+        totalBooks={filteredBooks.length} 
         booksPerPage={booksPerPage} 
         currentPage={passedPage} 
         setCurrentPage={setCurrentPage} 

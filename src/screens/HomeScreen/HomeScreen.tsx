@@ -12,6 +12,7 @@ function HomeScreen() {
 
     const { books, state, error, refresh } = useBooks();
     const [currentPage, setCurrentPage] = useState(1); // Manage the current page state
+    const [searchQuery, setSearchQuery] = useState(''); // Add search query state
 
     let content;
 
@@ -25,7 +26,7 @@ function HomeScreen() {
             console.log("error", error?.message);
             break;
         case 'success':
-            content = <BooksList books={books} passedPage={currentPage} setCurrentPage={setCurrentPage} />;
+            content = <BooksList books={books} passedPage={currentPage} setCurrentPage={setCurrentPage} searchQuery={searchQuery}/>;
             console.log("success");
             break;
         default:
@@ -37,7 +38,7 @@ function HomeScreen() {
     <div className="App">
         <div className="blue-bg flex flex-sb flex-c">
             <div className = "flex">
-                <SearchForm />
+                <SearchForm searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             </div>
             <div className="button-container flex">
                 <button onClick={refresh} className="button"><HiOutlineRefresh size = {20}/></button> {/* Add a button to manually refresh the books */}
