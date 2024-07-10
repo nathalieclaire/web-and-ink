@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import LegalNoticeScreen from "./screens/LegalNoticeScreen/LegalNoticeScreen";
 import BookDetailsScreen from "./screens/BookDetailsScreen/BookDetailsScreen";
 import EditBookScreen from "./screens/EditBookScreen/EditBookScreen";
+import LoginScreen from "./screens/LoginScreen/LoginScreen";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: "/edit-book/:isbn",
                 element: <EditBookScreen />,
+            },
+            {
+                path: "/login",
+                element: <LoginScreen />,
             },
         ],
     },
