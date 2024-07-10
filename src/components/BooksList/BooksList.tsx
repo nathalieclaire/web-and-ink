@@ -19,9 +19,15 @@ const BooksList: React.FC<BookItemProps> = ({ books, passedPage, setCurrentPage,
   }, [passedPage, setCurrentPage]);
 
   // Filter books based on the search query
-  const filteredBooks = books.filter(book => 
-    (book.title.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+  const filteredBooks = books.filter(book => {
+    const normalizeString = (str: string) => str.replace(/\s+/g, '').toLowerCase();
+    const normalizedQuery = normalizeString(searchQuery);
+    return (
+      normalizeString(book.title).includes(normalizedQuery) ||
+      (book.subtitle && normalizeString(book.subtitle).includes(normalizedQuery)) ||
+      (book.publisher && normalizeString(book.publisher).includes(normalizedQuery))
+    );
+  });
   console.log(filteredBooks);
 
   const lastBookIndex = passedPage * booksPerPage;
