@@ -5,12 +5,18 @@ import { Book } from '../../domain/book';
 import { IoIosArrowBack } from "react-icons/io";
 import DeleteBookButton from '../../components/DeleteBookButton/DeleteBookButton';
 import './BookDetailsScreen.css';
+import { selectUserRole } from '../../state/user/userSlice';
+import { RootState } from '../../state/store';
+import { useSelector } from 'react-redux';
 
 const BookDetailsScreen: React.FC = () => {
     const { isbn } = useParams<{ isbn: string }>();
     const effectiveIsbn = isbn || 'defaultISBN'; // Use 'defaultISBN' if isbn is undefined
     const [book, setBook] = useState<Book | null>(null);
     const [error, setError] = useState<string | null>(null);
+
+    // Get the user role from Redux store
+    const userRole = useSelector((state: RootState) => selectUserRole(state));
 
     const navigate = useNavigate();
     const handleClick = () => {
@@ -69,8 +75,9 @@ const BookDetailsScreen: React.FC = () => {
                 </div>
             )}
             <div className="bookdetails-button-container flex">
-                <button onClick={handleClick2} className="button">Edit Book</button>
-                <DeleteBookButton isbn={book.isbn}/>
+                {userRole === "admin" && <button onClick={handleClick2} className="button">Edit Book</button>}
+                {userRole === "admin" && <DeleteBookButton isbn={book.isbn}/>}
+                {userRole === "non-admin" && <button onClick={handleClick} className="button">Add To Basket</button>}
             </div>
         </div>
     );
