@@ -6,7 +6,11 @@ import AddBooksButton from '../../components/AddBooksButton/AddBooksButton';
 import { HiOutlineRefresh } from "react-icons/hi";
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Pagination from '../../components/Pagination/Pagination';
+import ShoppingCartButton from '../../components/ShoppingCartButton/ShoppingCartButton';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../state/store';
+import { selectUserRole } from '../../state/user/userSlice';   
 
 function HomeScreen() {
 
@@ -15,6 +19,9 @@ function HomeScreen() {
     const [searchQuery, setSearchQuery] = useState(''); // Add search query state
 
     let content;
+
+    // Get the user role from Redux store
+    const userRole = useSelector((state: RootState) => selectUserRole(state));
 
     switch (state) {
         case 'loading':
@@ -42,7 +49,8 @@ function HomeScreen() {
             </div>
             <div className="button-container flex">
                 <button onClick={refresh} className="button"><HiOutlineRefresh size = {20}/></button> {/* Add a button to manually refresh the books */}
-                <AddBooksButton />
+                {userRole === "admin" && <AddBooksButton />}
+                {userRole === "non-admin" && <ShoppingCartButton />}
             </div>
         </div>
         {content}

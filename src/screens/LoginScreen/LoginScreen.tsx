@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './LoginScreen.css';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUserRole } from '../../state/user/userSlice';
 
 function LoginScreen() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('admin@bookmonkey.api');
-    const [password, setPassword] = useState('password1!');
+    const [password, setPassword] = useState('password1!'); // all my users use this password :)
 
     async function handleLogin(event: React.FormEvent) {
         event.preventDefault();
@@ -31,10 +34,11 @@ function LoginScreen() {
             console.log("USER:", res);
 
             if (res) {
-                if (res.user.role === "admin") {
+                // dispatch the role to redux store
+                dispatch(setUserRole(res.user.role));
+
+                if (res.user.role === "admin" || res.user.role === "non-admin") {
                     navigate('/');
-                } else if (res.user.role === "non-admin") {
-                    navigate('/about');
                 } else {
                     alert('Your account is not authorized.');
                     navigate('/login');
