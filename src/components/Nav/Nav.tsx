@@ -6,7 +6,7 @@ function Nav() {
   return (
     <div className="App">
         <nav>
-            <NavLink to="/" className="nav-item">Home</NavLink>
+            <NavLink to="/home" className="nav-item">Home</NavLink>
             <span>|</span>
             <NavLink to="/about" className="nav-item">About</NavLink>
             <span>|</span>

@@ -38,16 +38,16 @@ function LoginScreen() {
                 dispatch(setUserRole(res.user.role));
 
                 if (res.user.role === "admin" || res.user.role === "non-admin") {
-                    navigate('/');
+                    navigate('/home');
                 } else {
                     alert('Your account is not authorized.');
-                    navigate('/login');
+                    navigate('/');
                 }
             }
         } catch (error) {
             console.error('Error during login:', error);
             alert('The credentials you entered are incorrect!');
-            navigate('/login');
+            navigate('/');
         }
     }
 

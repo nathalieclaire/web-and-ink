@@ -52,7 +52,7 @@ const AddBookScreen = () => {
 
   // Function to handle cancel button click
   const handleCancel = () => {
-    navigate("/"); // Navigate back to the home screen
+    navigate("/home"); // Navigate back to the home screen
   };
 
   return (

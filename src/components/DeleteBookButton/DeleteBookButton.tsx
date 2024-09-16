@@ -16,7 +16,7 @@ const DeleteBookButton: React.FC<DeleteBookButtonProps> = ({ isbn }) => {
             console.log('Delete book result:', isDeleted);
             if (isDeleted) {
                 console.log('Book deleted successfully.');
-                navigate('/');
+                navigate('/home');
             } else {
                 console.error('Failed to delete the book.');
             }
