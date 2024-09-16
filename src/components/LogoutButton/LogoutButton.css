@@ -1,0 +1,11 @@
+.logout-button {
+    position: absolute;
+    bottom: 7vh;
+    right: 7vh;
+}
+
+@media (max-width: 530px) {
+    .logout-button {
+        right: 40%;
+    }
+}

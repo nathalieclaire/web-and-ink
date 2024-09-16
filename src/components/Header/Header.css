@@ -5,6 +5,7 @@
     center/cover no-repeat; 
     flex-direction: column;
     padding: 0px 30px 50px 30px;
+    position: relative;
 }
 
 .header-text {
@@ -42,5 +43,11 @@
 @media (min-width: 1000px) {
     .logo {
         margin-right: 0.5vh;
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        padding-bottom: 20vh;
     }
 }
