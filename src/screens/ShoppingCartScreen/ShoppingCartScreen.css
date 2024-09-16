@@ -1,0 +1,13 @@
+.shopping-cart-container {
+    background-color: rgb(227, 247, 255);
+}
+
+.shopping-cart-container h1 {
+    padding-bottom: 30px;
+    padding-top: 50px;
+}
+
+.user-email {
+    padding-bottom: 40px;
+    text-align: center;
+}

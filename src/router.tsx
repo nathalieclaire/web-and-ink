@@ -9,6 +9,7 @@ import BookDetailsScreen from "./screens/BookDetailsScreen/BookDetailsScreen";
 import EditBookScreen from "./screens/EditBookScreen/EditBookScreen";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import ThankYouScreen from "./screens/ThankYouScreen/ThankYouScreen";
+import ShoppingCartScreen from "./screens/ShoppingCartScreen/ShoppingCartScreen";
 
 export const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             {
                 path: "/thanks",
                 element: <ThankYouScreen />,
+            },
+            {
+                path: "/shopping-cart",
+                element: <ShoppingCartScreen />,
             },
         ],
     },

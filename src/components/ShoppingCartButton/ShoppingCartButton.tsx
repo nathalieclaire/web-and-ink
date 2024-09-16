@@ -6,7 +6,7 @@ function ShoppingCartButton() {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate("/about");
+        navigate("/shopping-cart");
     }
 
     return (

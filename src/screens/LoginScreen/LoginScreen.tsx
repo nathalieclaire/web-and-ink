@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './LoginScreen.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setUserRole } from '../../state/user/userSlice';
+import { setUser } from '../../state/user/userSlice';
+import { setUserEmail } from '../../state/cart/cartSlice';
 
 function LoginScreen() {
     const navigate = useNavigate();
@@ -34,8 +35,9 @@ function LoginScreen() {
             console.log("USER:", res);
 
             if (res) {
-                // dispatch the role to redux store
-                dispatch(setUserRole(res.user.role));
+                // Dispatch the user data to the Redux store
+                dispatch(setUser({ role: res.user.role, email: res.user.email }));
+                dispatch(setUserEmail(res.user.email)); // Set email in cart
 
                 if (res.user.role === "admin" || res.user.role === "non-admin") {
                     navigate('/home');
