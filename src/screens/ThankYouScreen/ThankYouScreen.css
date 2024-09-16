@@ -1,0 +1,15 @@
+.thanks-heading {
+    padding: 120px 10vw 100px 10vw;
+    text-align: center;
+}
+
+.thanks-container {
+    background-color: rgb(227, 247, 255);
+    justify-content: center;
+    flex-direction: column;
+}
+
+#continue-shopping-button {
+    margin-bottom: 120px;
+    margin-left: 0px;
+}
