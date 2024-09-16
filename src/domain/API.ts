@@ -92,7 +92,7 @@ async function updateBook(isbn: string, updatedBook: Book, oldISBN: string): Pro
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const book: Book = await response.json();
-        // bc we created a new route with POST he have to delete the old one!
+        // bc we created a new route with POST we have to delete the old one!
         if (isbn !== oldISBN) {
             deleteBook(oldISBN);
         }
@@ -102,18 +102,27 @@ async function updateBook(isbn: string, updatedBook: Book, oldISBN: string): Pro
     }
 }
 
-// Deleting a book
-async function deleteBook(isbn: string): Promise<boolean | undefined> {
+async function deleteBook(isbn: string): Promise<boolean> {
     try {
         const response = await fetch(`http://localhost:4730/books/${isbn}`, {
-            method: 'DELETE'
+            method: 'DELETE',
         });
-        if (!response.ok) {
-            throw new Error('Failed to delete the book.');
+
+        // Removed `const result = await response.json();` because it caused errors when the server returned no content, 
+        // which made the function return `false` even though the deletion actually worked.
+        // Now, checking for a 204 No Content status instead of expecting a JSON response.
+        if (response.status === 204 || response.ok) { // Check for 204 No Content or a general OK status
+            console.log('Delete book response: Success');
+            return true; // Return true directly for a successful deletion
         }
-        return response.ok;
+
+        // If the response is not okay, try to get more information
+        const errorText = await response.text();
+        console.error('Failed to delete the book:', response.status, response.statusText, errorText);
+        return false;
+
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error during delete operation:', error);
         return false;
     }
 }
