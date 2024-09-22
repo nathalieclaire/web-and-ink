@@ -134,15 +134,6 @@ const AddBookScreen = () => {
           onChange={(e) => setNumPages(e.target.value)}
         />
       </label>
-      <label className="addbook-label">
-        <span className="addbook-text bold-label">User-ID: </span>
-        <input
-          className="addbook-field"
-          type="number"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-        />
-      </label>
       <div className="save-button-container flex">
       <button type="submit" className="button">
           Save
