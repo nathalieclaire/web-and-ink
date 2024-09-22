@@ -6,9 +6,9 @@ import { IoIosArrowBack } from "react-icons/io";
 import DeleteBookButton from '../../components/DeleteBookButton/DeleteBookButton';
 import './BookDetailsScreen.css';
 import { selectUserRole } from '../../state/user/userSlice';
-import { addToCart } from '../../state/cart/cartSlice';
 import { RootState } from '../../state/store';
 import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../state/cart/cartSlice';
 
 const BookDetailsScreen: React.FC = () => {
     const { isbn } = useParams<{ isbn: string }>();
@@ -18,33 +18,33 @@ const BookDetailsScreen: React.FC = () => {
 
     // Get the user role from Redux store
     const userRole = useSelector((state: RootState) => selectUserRole(state));
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleClick = () => {
         navigate("/home");
-    };
+    }
 
     const handleClick2 = () => {
         navigate(`/edit-book/${isbn}`);
-    };
+    }
+
+    const userEmail = useSelector((state: RootState) => state.user.email);
 
     const addToBasket = () => {
-        // Add the book to the cart
-        if (book) {
-            // Dispatch the addToCart action
-            dispatch(addToCart({
-                id: parseFloat(book.id), 
-                title: book.title,
-                author: book.author,
-                price: parseFloat(book.price),
-                quantity: 1, // Start with 1 item in the cart
+        if (book && userEmail) {
+            dispatch(addToCart({ 
+                id: Number(book.id), 
+                title: book.title, 
+                author: book.author, 
+                price: book.price, 
+                quantity: 1,
+                email: userEmail
             }));
+        }
         console.log("Added to basket");
         navigate("/home");
     }
-}
 
     useEffect(() => {
         const fetchBook = async () => {

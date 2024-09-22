@@ -7,8 +7,9 @@ interface CartItemProps {
   id: number;
   title: string;
   author: string;
-  price: number;
+  price: string;
   quantity: number;
+  email?: string; // Optional field for user email
 }
 
 const CartItem: React.FC<CartItemProps> = ({ id, title, author, price, quantity }) => {
@@ -30,7 +31,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, author, price, quantity 
     <div className="cart-item">
       <h3>{title}</h3>
       <p>Author: {author}</p>
-      <p>Price: ${price.toFixed(2)}</p>
+      <p>Price: </p>
       <div className="cart-item-controls">
         <button onClick={handleDecrease} disabled={quantity <= 1}>-</button>
         <span>{quantity}</span>

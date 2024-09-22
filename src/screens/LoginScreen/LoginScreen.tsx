@@ -37,7 +37,9 @@ function LoginScreen() {
             if (res) {
                 // Dispatch the user data to the Redux store
                 dispatch(setUser({ role: res.user.role, email: res.user.email }));
-                dispatch(setUserEmail(res.user.email)); // Set email in cart
+                // Dispatch to save user email in cartSlice
+                dispatch(setUserEmail(email));
+                console.log(res.user.email);
 
                 if (res.user.role === "admin" || res.user.role === "non-admin") {
                     navigate('/home');
