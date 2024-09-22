@@ -6,8 +6,9 @@ import { IoIosArrowBack } from "react-icons/io";
 import DeleteBookButton from '../../components/DeleteBookButton/DeleteBookButton';
 import './BookDetailsScreen.css';
 import { selectUserRole } from '../../state/user/userSlice';
+import { addToCart } from '../../state/cart/cartSlice';
 import { RootState } from '../../state/store';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const BookDetailsScreen: React.FC = () => {
     const { isbn } = useParams<{ isbn: string }>();
@@ -18,14 +19,32 @@ const BookDetailsScreen: React.FC = () => {
     // Get the user role from Redux store
     const userRole = useSelector((state: RootState) => selectUserRole(state));
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const handleClick = () => {
         navigate("/home");
-    }
+    };
 
     const handleClick2 = () => {
         navigate(`/edit-book/${isbn}`);
+    };
+
+    const addToBasket = () => {
+        // Add the book to the cart
+        if (book) {
+            // Dispatch the addToCart action
+            dispatch(addToCart({
+                id: parseFloat(book.id), 
+                title: book.title,
+                author: book.author,
+                price: parseFloat(book.price),
+                quantity: 1, // Start with 1 item in the cart
+            }));
+        console.log("Added to basket");
+        navigate("/home");
     }
+}
 
     useEffect(() => {
         const fetchBook = async () => {
@@ -77,7 +96,7 @@ const BookDetailsScreen: React.FC = () => {
             <div className="bookdetails-button-container flex">
                 {userRole === "admin" && <button onClick={handleClick2} className="button">Edit Book</button>}
                 {userRole === "admin" && <DeleteBookButton isbn={book.isbn}/>}
-                {userRole === "non-admin" && <button onClick={handleClick} className="button">Add To Basket</button>}
+                {userRole === "non-admin" && <button onClick={addToBasket} className="button">Add To Basket</button>}
             </div>
         </div>
     );

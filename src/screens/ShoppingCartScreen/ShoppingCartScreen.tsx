@@ -3,6 +3,7 @@ import './ShoppingCartScreen.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserEmail } from '../../state/user/userSlice';
+import CartItemList from '../../components/CartItemList/CartItemList';
 
 function ShoppingCartScreen() {
 
@@ -20,7 +21,7 @@ function ShoppingCartScreen() {
     <div className="App shopping-cart-container">
         <h1 className="blue-color bold-label2 flex flex-c">Shopping Cart</h1>
         <h2 className="user-email bold-label"> {userName} </h2>
-        {/* TODO: Render cart items here */}
+        <CartItemList />
     </div>
   );
 }
