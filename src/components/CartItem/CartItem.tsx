@@ -9,14 +9,14 @@ interface CartItemProps {
   author: string;
   price: string;
   quantity: number;
-  email?: string; // Optional field for user email
+  email: string;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ id, title, author, price, quantity }) => {
+const CartItem: React.FC<CartItemProps> = ({ id, title, author, price, quantity, email }) => {
   const dispatch = useDispatch();
 
   const handleIncrease = () => {
-    dispatch(increaseQuantity(id));
+    dispatch(increaseQuantity({id, email}));
   };
 
   const handleDecrease = () => {
@@ -31,7 +31,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, author, price, quantity 
     <div className="cart-item">
       <h3>{title}</h3>
       <p>Author: {author}</p>
-      <p>Price: </p>
+      <p>Price: {price} </p>
       <div className="cart-item-controls">
         <button onClick={handleDecrease} disabled={quantity <= 1}>-</button>
         <span>{quantity}</span>

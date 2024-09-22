@@ -6,7 +6,7 @@ export interface CartItem {
     author: string;
     price: string;
     quantity: number;
-    email?: string; // Optional field for user email
+    email: string;
 }
 
 interface CartState {
@@ -41,10 +41,11 @@ const cartSlice = createSlice({
             state.items = state.items.filter(item => item.id !== action.payload);
         },
         // increase quantity (click the "+" button to increase the quantity) TODO
-        increaseQuantity: (state, action: PayloadAction<number>) => {
-            const item = state.items.find(item => item.id === action.payload);
+        increaseQuantity: (state, action: PayloadAction<{ id: number, email: string }>) => {
+            const { id, email } = action.payload;
+            const item = state.items.find(item => item.id === id && item.email === email);
             if (item) {
-                item.quantity += 1; // Increase item quantity
+                item.quantity += 1; // Increase item quantity for the correct user
             }
         },
         // decrease quantity (click the "-" button to decrease the quantity) TODO

@@ -26,6 +26,7 @@ const CartItemList: React.FC = () => {
             author={item.author} 
             price={item.price} 
             quantity={item.quantity} 
+            email={item.email}
           />
         ))
       )}
