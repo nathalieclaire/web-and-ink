@@ -5,10 +5,12 @@ import { CartItem as CartItemType } from '../../state/cart/cartSlice';
 import './CartItemList.css';
 import { RootState } from '../../state/store';
 import { selectUserEmail } from '../../state/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const CartItemList: React.FC = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const userEmail = useSelector(selectUserEmail);
+  const navigate = useNavigate();
 
   // filter out the items that belong to the current user
   const userCartItems = cartItems.filter(item => item.email === userEmail); 
@@ -21,6 +23,11 @@ const CartItemList: React.FC = () => {
       return acc + (itemPrice * item.quantity);
     }, 0) // Start the accumulator at 0
     .toFixed(2); // Convert the total to 2 decimal places for currency formatting
+
+  // Function to checkout
+  const checkout = () => {
+    navigate("/thanks");
+  };
 
   return (
     <div className="cart-item-list">
@@ -39,12 +46,10 @@ const CartItemList: React.FC = () => {
           />
         ))
       )}
-      {/*TODO: calculate the total price*/}
-      {/*first take the string from "price" from all items in the shopping basket, remove the "$" sign,
-      then convert it to a number, then sum them up and display the total price*/}
+      
       <h3>Total Price: ${totalPrice} </h3>
 
-      {/*TODO: Add a "Checkout" button that redirects to ThankYouScreen*/}
+      <button className="checkout-button" onClick={checkout}>Checkout</button>
     </div>
   );
 };
