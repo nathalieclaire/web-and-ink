@@ -36,10 +36,11 @@ const cartSlice = createSlice({
                 state.items.push(action.payload); // Otherwise, add new item
             }
         },
-        // remove from cart (just click the bin symbol and the item is removed)
-        removeFromCart: (state, action: PayloadAction<number>) => {
-            state.items = state.items.filter(item => item.id !== action.payload);
-        },
+        // remove from a specific users cart (just click the bin symbol and the item is removed)
+        removeFromCart: (state, action: PayloadAction<{ id: number; email: string }>) => {
+            const { id, email } = action.payload;
+            state.items = state.items.filter(item => item.id !== id || item.email !== email);
+          },
         // increase quantity (click the "+" button to increase the quantity) TODO
         increaseQuantity: (state, action: PayloadAction<{ id: number, email: string }>) => {
             const { id, email } = action.payload;
@@ -49,12 +50,13 @@ const cartSlice = createSlice({
             }
         },
         // decrease quantity (click the "-" button to decrease the quantity) TODO
-        decreaseQuantity: (state, action: PayloadAction<number>) => {
-            const item = state.items.find(item => item.id === action.payload);
+        decreaseQuantity: (state, action: PayloadAction<{ id: number; email: string }>) => {
+            const { id, email } = action.payload;
+            const item = state.items.find(item => item.id === id && item.email === email);
             if (item && item.quantity > 1) {
-                item.quantity -= 1; // Decrease item quantity
+              item.quantity -= 1;
             }
-        }
+          }
     }
 });
 

@@ -20,11 +20,11 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, author, price, quantity,
   };
 
   const handleDecrease = () => {
-    dispatch(decreaseQuantity(id));
+    dispatch(decreaseQuantity({id, email}));
   };
 
   const handleRemove = () => {
-    dispatch(removeFromCart(id));
+    dispatch(removeFromCart({id, email}));
   };
 
   return (
