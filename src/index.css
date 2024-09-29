@@ -76,7 +76,7 @@ code {
 
 .custom-content {
   text-align: center;
-  color: rgb(138, 138, 138);
+  color: rgba(0, 60, 97, 0.887);
   font-weight: 500;
   font-size: 1.2rem;
   padding: 60px;
@@ -104,4 +104,114 @@ code {
 
 .button:hover {
   box-shadow: rgba(0, 63, 105, 0.332) 0px 5px 15px 0px; 
+}
+
+/* ADMIN THEME (PINK) OVERRIDE */
+
+.admin .blue-color {
+  color: rgb(106, 26, 98);
+}
+
+.admin .button {
+  color: rgb(106, 26, 98);
+}
+
+.admin .button:hover{
+  box-shadow:rgba(106, 26, 98, 0.209) 0px 5px 15px 0px;
+}
+
+.admin .header {
+  background: linear-gradient(rgba(234, 181, 235, 0.921), 
+  rgba(67, 20, 63, 0.911)), url("../public/bookshelf-inaki-del-olmo.jpg") 
+    center/cover no-repeat;
+}
+
+.admin .footer {
+  background: linear-gradient(rgba(234, 181, 235, 0.921), 
+  rgba(67, 20, 63, 0.911)), url("../public/bookshelf-inaki-del-olmo.jpg") 
+  center/cover no-repeat;
+}
+
+/* admin nav */
+
+.admin .active {
+  color:rgb(255, 196, 248);
+}
+
+.admin nav span {
+  color: rgb(57, 14, 53);
+}
+
+/* admin home screen */
+
+.admin .blue-bg {
+  background-color: rgb(255, 240, 253);
+}
+
+.admin .books-list {
+  background-color: rgb(255, 240, 253);
+}
+
+.admin .custom-content {
+  background-color: rgb(255, 240, 253);
+  color:rgb(106, 26, 98);
+}
+
+.admin .button-container {
+  background-color: rgb(255, 240, 253);
+}
+
+.admin .book-item {
+  background-color: rgb(255, 250, 252);
+}
+
+.admin .book-details {
+  background-color: rgb(255, 250, 252);
+}
+
+.admin .addbook-details {
+  background-color: rgb(255, 250, 252);
+}
+
+.admin input:focus {
+  outline: 2px solid rgba(106, 26, 98, 0.483);
+}
+
+.admin textarea:focus {
+  outline: 2px solid rgba(106, 26, 98, 0.503);
+}
+
+.admin .editbook-details {
+  background-color: rgb(255, 250, 252);
+}
+
+.admin .legal-container {
+  background-color: rgb(255, 240, 253);
+}
+
+.admin .about-container {
+  background-color: rgb(255, 240, 253);
+}
+
+/* admin pagination */
+
+.admin .pagination-container {
+  background-color: rgba(106, 26, 98, 0.158);
+}
+
+.admin .active2 {
+  background-color: rgba(106, 26, 98, 0.158);
+  color: rgb(255, 232, 241);
+}
+
+.admin .pagination-button:hover {
+  color: rgba(106, 26, 98, 0.825);
+}
+
+.search-button:hover {
+  color: rgba(106, 26, 98, 0.825);
+}
+
+.search-form input[type="text"]:hover::placeholder {
+  color: rgba(106, 26, 98, 0.825);
 }

@@ -8,11 +8,18 @@ import { Book } from './domain/book';
 import { getAllBooks } from './domain/API';
 import { useBooks } from './domain/hook';
 import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectUserRole } from './state/user/userSlice';
 
 function App() {
+  // Get the user role from Redux
+  const userRole = useSelector(selectUserRole);
+
+  // Determine the theme class based if the user is admin
+  const isAdmin = userRole === 'admin';
   
   return (
-    <div className="App">
+    <div className={`App ${isAdmin ? 'admin' : ''}`}>
         <Header />
         <Outlet />
         <Footer />
