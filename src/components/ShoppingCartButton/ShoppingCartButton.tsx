@@ -1,6 +1,7 @@
 import React from 'react';
 import './ShoppingCartButton.css';
 import { useNavigate } from "react-router-dom";
+import { LuShoppingCart } from "react-icons/lu";
 
 function ShoppingCartButton() {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ function ShoppingCartButton() {
 
     return (
         <div className="App">
-            <button onClick={handleClick} className = "button">Cart</button>
+            <button onClick={handleClick} className = "button"><LuShoppingCart size = {20}/></button>
         </div>
     );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { increaseQuantity, decreaseQuantity, removeFromCart } from '../../state/cart/cartSlice';
 import './CartItem.css';
+import { AiFillDelete } from "react-icons/ai";
 
 interface CartItemProps {
   id: number;
@@ -29,15 +30,19 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, author, price, quantity,
 
   return (
     <div className="cart-item">
-      <h3>{title}</h3>
-      <p>Author: {author}</p>
-      <p>Price: {price} </p>
-      <div className="cart-item-controls">
-        <button onClick={handleDecrease} disabled={quantity <= 1}>-</button>
-        <span>{quantity}</span>
-        <button onClick={handleIncrease}>+</button>
+      <h3 className="cart-item-title">{title}</h3>
+      <div className="cart-items-details flex">
+        <div>
+          <p>Author: {author}</p>
+          <p>Price: {price} </p>
+        </div>
+        <button onClick={handleRemove} className="remove-button"><AiFillDelete size={27}/></button>
       </div>
-      <button onClick={handleRemove}>Remove</button>
+      <div className="cart-item-controls">
+        <button className="quantity-button blue-color" onClick={handleDecrease} disabled={quantity <= 1}>-</button>
+        <span>{quantity}</span>
+        <button className="quantity-button blue-color" onClick={handleIncrease}>+</button>
+      </div>
     </div>
   );
 };

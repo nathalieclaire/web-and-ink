@@ -2,6 +2,13 @@
     position: absolute;
     bottom: 7vh;
     right: 7vh;
+    transition: var(--transition);
+}
+
+.logout-button:hover {
+    transform: scale(1.1);
+    transition: var(--transition);
+    color: rgba(255, 0, 0, 0.603);
 }
 
 @media (max-width: 530px) {

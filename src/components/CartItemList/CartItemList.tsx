@@ -47,9 +47,9 @@ const CartItemList: React.FC = () => {
         ))
       )}
       
-      <h3>Total Price: ${totalPrice} </h3>
+      <h3 className="total-price blue-color">Total Price: ${totalPrice} </h3>
 
-      <button className="checkout-button" onClick={checkout}>Checkout</button>
+      <button className="checkout-button button" onClick={checkout}>Checkout</button>
     </div>
   );
 };

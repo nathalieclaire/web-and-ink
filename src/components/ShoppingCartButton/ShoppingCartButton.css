@@ -1,0 +1,5 @@
+.button svg {
+    position: relative;
+    top: 2px; /* Move the icon down */
+    left: -1px; /* Move the icon to the left */
+}

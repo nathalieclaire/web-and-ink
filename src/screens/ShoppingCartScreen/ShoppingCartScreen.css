@@ -7,6 +7,11 @@
     padding-top: 50px;
 }
 
+.shopping-cart-icon {
+    margin-left: 15px;
+    filter: drop-shadow(1px 1px 0 rgba(0, 60, 97, 0.887)); /* Gives the appearance of boldness */
+}
+
 .user-email {
     padding-bottom: 40px;
     text-align: center;
