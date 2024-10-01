@@ -132,6 +132,10 @@ code {
   center/cover no-repeat;
 }
 
+.admin .footer-text:hover {
+  color: rgb(255, 196, 248);
+}
+
 /* admin nav */
 
 .admin .active {
@@ -150,6 +154,10 @@ code {
 
 .admin .books-list {
   background-color: rgb(255, 240, 253);
+}
+
+.admin .book-item:hover{
+  box-shadow: rgba(106, 26, 98, 0.209) 0px 5px 15px 0px; 
 }
 
 .admin .custom-content {
