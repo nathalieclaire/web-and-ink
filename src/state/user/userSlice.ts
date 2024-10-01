@@ -19,6 +19,11 @@ const userSlice = createSlice({
             state.role = action.payload.role;
             state.email = action.payload.email;
         },
+        // change user role to "non-admin" after logout
+        logout: (state) => {
+            state.role = 'non-admin';
+            state.email = null;
+        },
     },
 });
 
@@ -27,7 +32,7 @@ export const selectUserEmail = (state: { user: UserState }) => state.user.email;
 export const selectUserRole = (state: { user: UserState }) => state.user.role;
 
 
-export const { setUser } = userSlice.actions;
+export const { setUser, logout } = userSlice.actions;
 
 export default userSlice.reducer;
 
