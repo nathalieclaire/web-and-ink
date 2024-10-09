@@ -126,8 +126,8 @@ Once roles are assigned and you log in, the app will adapt its functionality and
 ### Customer view
 
 <div style="display: flex; align-items: center;">
-    <img src="public/screenshots/customer_view.png" alt="Admin view"  width="45%" style="margin-right: 20px;">
-    <img src="public/screenshots/customer_shoppingcart.png" alt="Admin update book details" width="45%">
+    <img src="public/screenshots/customer_view.png" alt="Customer view"  width="45%" style="margin-right: 20px;">
+    <img src="public/screenshots/customer_shoppingcart.png" alt="Customer shopping basket" width="45%">
 </div>
 
 ### License
