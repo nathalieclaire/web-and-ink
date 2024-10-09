@@ -110,8 +110,8 @@ curl -X POST -H "Content-Type: application/json" \
 
 
 <div style="display: flex; align-items: center;">
-    <img src="public/screenshots/postman_screenshot1.png" alt="Postman example update admin"  width="50%" style="margin-right: 20px;">
-    <img src="public/screenshots/postman_screenshot2.png" alt="Postman example create customer" width="50%">
+    <img src="public/screenshots/postman_screenshot1.png" alt="Postman example update admin"  width="45%" style="margin-right: 20px;">
+    <img src="public/screenshots/postman_screenshot2.png" alt="Postman example create customer" width="45%">
 </div>
 <br>
 Once roles are assigned and you log in, the app will adapt its functionality and UI based on the role. Admins have access to CRUD features, and the color scheme changes depending on the user role. Non-admin users (customers) have the capability to add books to their shopping basket, which will persist even after logging out, and they are also able to proceed with the checkout process.
@@ -119,15 +119,15 @@ Once roles are assigned and you log in, the app will adapt its functionality and
 ### Admin view
 
 <div style="display: flex; align-items: center;">
-    <img src="public/screenshots/admin_view.png" alt="Admin view"  width="50%" style="margin-right: 20px;">
-    <img src="public/screenshots/admin_edit.png" alt="Admin update book details" width="50%">
+    <img src="public/screenshots/admin_view.png" alt="Admin view"  width="45%" style="margin-right: 20px;">
+    <img src="public/screenshots/admin_edit.png" alt="Admin update book details" width="45%">
 </div>
 
 ### Customer view
 
 <div style="display: flex; align-items: center;">
-    <img src="public/screenshots/customer_view.png" alt="Admin view"  width="50%" style="margin-right: 20px;">
-    <img src="public/screenshots/customer_shoppingcart.png" alt="Admin update book details" width="50%">
+    <img src="public/screenshots/customer_view.png" alt="Admin view"  width="45%" style="margin-right: 20px;">
+    <img src="public/screenshots/customer_shoppingcart.png" alt="Admin update book details" width="45%">
 </div>
 
 ### License
